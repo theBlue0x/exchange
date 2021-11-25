@@ -9,14 +9,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-reset.css" rel="stylesheet">
   <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-  <link href="css/style.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet" />
-  <script>
-  function setButtonText() {
-    var translatedLoginButtonText = $.t("button_login");
-    document.getElementById("loginButtonText").innerHTML = translatedLoginButtonText;
-  };
-  </script>
   <script>
   function login() {
     var Account = document.getElementById('user_entered_account_number').value;
@@ -44,7 +38,7 @@
             replace_loginResult += '</div>';
             replace_loginResult += '<div class="media-body">';
             replace_loginResult += '<a class="p-head">BLX Balance</a>';
-            replace_loginResult += '<p>' + balance + ' BLX </p>';
+            replace_loginResult += '<p>' + balance.toLocaleString() + ' BLX </p>';
             replace_loginResult += '</div>';
             document.getElementById("loginResult").innerHTML = replace_loginResult;
           }
@@ -56,27 +50,24 @@
       },
       function(coinquery) {
         if (coinquery == '{}') {
-          console.log(coinquery);
-            sessionStorage.setItem("USDXAccountBalance", "0 USDX");
             var replace_USDXAccountBalance = '';
             replace_USDXAccountBalance += '<div class="media-body">';
             replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
             replace_USDXAccountBalance += '<p>0 USDX</p>';
             replace_USDXAccountBalance += '</div>';
             replace_USDXAccountBalance += '</br>';
-            replace_USDXAccountBalance += '<a class="btn btn-default" href="ViewAll.html" role="button">View Items</a>&nbsp;&nbsp;<a class="btn btn-default" href="account_details.html" role="button">My Account</a>';
+            replace_USDXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
             document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
           } else {
             var USDXAccountBalance = coinquery.units;
-            sessionStorage.setItem("USDXAccountBalance", coinquery.units);
             var convertedUSDXAccountBalance = USDXAccountBalance / 100;
             var replace_USDXAccountBalance = '';
             replace_USDXAccountBalance += '<div class="media-body">';
             replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
-            replace_USDXAccountBalance += '<p>' + convertedUSDXAccountBalance + ' USDX</p>';
+            replace_USDXAccountBalance += '<p>' + convertedUSDXAccountBalance.toLocaleString() + ' USDX</p>';
             replace_USDXAccountBalance += '</div>';
             replace_USDXAccountBalance += '</br>';
-            replace_USDXAccountBalance += '<a class="btn btn-default" href="ViewAll.html" role="button">View Items</a>&nbsp;&nbsp;<a class="btn btn-default" href="account_details.html" role="button">My Account</a>';
+            replace_USDXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
             document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
           }
         }, "json");
@@ -85,16 +76,15 @@
 <script>
   function loadAccountInfo() {
     if (sessionStorage.getItem("loginStatus") == "loggedin") {
-      var fmlang = localStorage.getItem("fmlang");
-      window.location.href = "account_details.html?setLng=" + fmlang;
+      window.location.href = "account_details.html";
     }};
   </script>
 </head>
-<body class="full-width" onload="loadAccountInfo(); setLanguage(); setButtonText();">
+<body class="full-width" onload="loadAccountInfo();">
   <section id="container">
     <script type="text/javascript" src="js/menu.js"></script>
     <section id="main-content">
-      <section class="wrapper site-min-height">
+      <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
             <section class="panel">
@@ -103,19 +93,17 @@
               </header>
               <div class="panel-body">
                 <div id="loginResult">
-                  <p><span data-i18n="account_number_welcome">Enter your BLX account number below. This will allow Blue0x Market to know which items for sale are yours, and to display your BLX account balance. Your secret passphrase is NOT required for this.</span></p>
+                  <p>Enter your BLX account number below. This will allow Blue0x Market to know which items for sale are yours, and to display your BLX account balance. Your secret passphrase is NOT required for this.</p>
                   <div class="form-group">
-                    <label for="user_entered_account_number"><span data-i18n="account_number">BLX Account Number</span></label>
+                    <label for="user_entered_account_number">BLX Account Number</span></label>
                     <div class="iconic-input">
                       <i class="fa fa-bars"></i>
-                      <input type="text" class="form-control" data-i18n="[placeholder]placeholder_required" id="user_entered_account_number" autofocus>
+                      <input type="text" class="form-control" placeholder="required" id="user_entered_account_number">
                       <div id="user_entered_account_numberErrorMessage"></div>
                     </div>
                   </div>
                   <div id="loginButtonSection">
-                    <button type="button" id="loginButton" class="btn btn-default" onclick="login();">
-                      <div id="loginButtonText"></div>
-                    </button>
+                    <button type="button" id="loginButton" class="btn btn-info" onclick="login();">Login</button>
                   </div>
                 </div>
                 <div id="USDXAccountBalance">
@@ -130,12 +118,7 @@
   </section>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.dcjqaccordion.2.7.min.js"></script>
-  <script src="js/bootstrap-hover-dropdown.min.js"></script>
   <script src="js/constants.js"></script>
   <script src="js/freemarket_scripts.js"></script>
-  <script src="js/common-scripts.js"></script>
-  <script src="js/i18next.min.js"></script>
-  <script src="js/freemarket_localization_scripts.js"></script>
 </body>
 </html>

@@ -11,9 +11,32 @@
 	}
 }
 
+.myButton {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
+  background: -moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+  background: -webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+  background: -o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+  background: -ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+  background: linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2', GradientType=0);
+  background-color: #0275d8;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  border: 1px solid black;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
 .container {
     position: absolute;
-    top: 50vh;
+    top: 49vh;
     left: 50vw;
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
@@ -25,8 +48,8 @@ span {
 }
 
 .btn-primary {
-	background-color: #3cabfb;
-	border-color: #3cabfb;
+    background-color: #3cabfb;
+    border-color: #555555;
     font-weight: 700;
 }
 
@@ -77,7 +100,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #7b7b7b;
+    color: #fff;
     text-decoration: none;
     outline: 0;
 }
@@ -111,7 +134,7 @@ a:after {
 	background-position: center center;
 	min-height: 100vh;
 	width: 100vw;
-	
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -132,7 +155,7 @@ a:after {
 
 #headerwrap h2 {
 	color: white;
-	font-size: 70px;
+	font-size: 40px;
 	font-weight: 700;
 	text-shadow: 1px 1px 4px black;
 }
@@ -141,8 +164,8 @@ a:after {
 	color: white;
 	font-size: 30px;
 	font-weight: 100;
-    	font-family: 'EB Garamond', serif;
-    	font-style: oblique;
+    font-family: 'EB Garamond', serif;
+    font-style: oblique;
 }
 
 /* MENU CONF*/

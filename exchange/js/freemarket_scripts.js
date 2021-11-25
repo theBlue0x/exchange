@@ -1,22 +1,13 @@
-// Gets account number from local storage, or redirects user to login page if no account number is in local storage
 function setAccountNumber() {
   if (sessionStorage.getItem("accountRS"))
   {
-    var USDXbalance = sessionStorage.getItem("USDXAccountBalance");
-    var username = "My Account";
-    document.getElementById("username").innerHTML = username + '&nbsp;<span class="caret"></span>';
-    var translatedAccountBalance = $.t("account_balance");
-    var translatedAccountDetails = $.t("account_details");
-    document.getElementById("USDXbalance").innerHTML = translatedAccountBalance + ':<br />' + USDXbalance;
-    document.getElementById("logintext").innerHTML = translatedAccountDetails;
+    document.getElementById("username").innerHTML = "Account";
     sessionStorage.setItem("loginStatus","loggedin");
-  }
-  else {
+  } else {
     sessionStorage.setItem("loginStatus","notloggedin");
   }
 };
 // Logout script
-// Check browser support 
 function logout(){
   if (typeof(Storage) != "undefined")
   {
@@ -44,35 +35,10 @@ function getQueryVariable(variable) {
   return(false);
 };
 
-// Set the localstorage language parameter
-function setLanguage() {
-  var languageString=(getQueryVariable("setLng"));
-  if (languageString == '') {
-    languageString = 'en';
-    localStorage.setItem("fmlang",languageString);
-  }
-  else {
-    localStorage.setItem("fmlang",languageString);
-  }
-};
-
-// Check to see if the localstorage language parameter is already set on launch, load ViewAll page if it is
-function checkInitialLanguageV() {
-  //var languageString=(getQueryVariable("setLng")); // See if user returned from another page
-  if("fmlang" in localStorage){ // If not, and fmlang is set, use it 
-   var savedLanguage = localStorage.getItem("fmlang");
-   window.location.href = "ViewAll.html?setLng=" + savedLanguage;
-  }
-};
-
 // Check to see if the localstorage language parameter is already set on launch, load login page if it is
 function checkInitialLanguageLogin() {
-  //var languageString=(getQueryVariable("setLng")); // See if user returned from another page
-  if("fmlang" in localStorage){ // If not, and fmlang is set, use it 
-   var savedLanguage = localStorage.getItem("fmlang");
-   window.location.href = "login_view_account.html?setLng=" + savedLanguage;
-  }
-};
+   window.location.href = "login_view_account.html";
+  };
 
 // For cleaning out any script injection attacks
 

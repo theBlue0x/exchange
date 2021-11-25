@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Blue0x Decentralized Exchange">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<title>Blue0x | EXCHANGE</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-reset.css" rel="stylesheet">
+	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">  
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/style-responsive.css" rel="stylesheet">
+	<style>
+		a.linkLimit {
+				color: white;
+		}
+		a.linkLimit:hover {
+				color: black;
+		}
+		.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: transparent;
+		}
+		.table>thead>tr>th {
+			border:  none;
+		}
+		p {
+			color: white;
+			font-weight: 600;
+		}
+		.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+			border-top: 1px solid #444;
+		}
+		
+	</style>
+</head>
+<body class="full-width" onload="price(); setAccountNumber();">
+	<section id="container"> 
+		<script type="text/javascript" src="js/menu.js"></script>
+		<section id="main-content">
+			<section class="wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel">
+							<header class="panel-heading" style="color:white;">
+								<p>USDX - United States Dollar Market</p>
+								<p style="font-weight:500;font-size:14px;">Last Price : <span id="usdx">00.00</span> BLX</p>
+							</header>
+							<div class="panel-body">
+								<div class="table-responsive">
+  								<canvas id="myChart" class="table" style="max-height:38vh;display: inline-block;"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="panel">
+							<header class="panel-heading" style="color:white;">
+								<span>Buy USDX</span><a class="linkLimit" href="#buyModal" data-toggle="modal" data-target="#buyModal" style="float:right;font-size:14px;">Limit Order</a>
+							</header>
+							<div class="panel-body" style="max-height:185px;overflow:auto;padding-left:15px;">
+								<table class="display table table-striped">
+									<thead>
+										<tr>
+											<th>Amount</span></th>
+											<th>Limit</th>
+											<th>Price</th>
+										</tr>
+									</thead>
+									<tbody id="buy_table_body"></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="panel">
+							<header class="panel-heading" style="color:white;">
+								<span>Sell USDX</span><a class="linkLimit" href="#sellModal" data-toggle="modal" data-target="#sellModal" style="float:right;font-size:14px;">Limit Order</a>
+							</header>
+							<div class="panel-body" style="max-height:185px;overflow:auto;padding-left: 15px;">
+								<table class="display table table-striped">
+									<thead>
+										<tr>
+											<th>Amount</span></th>
+											<th>Limit</th>
+											<th>Price</th>
+										</tr>
+									</thead>
+									<tbody id="sell_table_body"></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal fade" id="buyModal">
+					<div class="modal-dialog">
+						<div class="modal-content" >
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title"><b>Buy USDX</b></h4>
+							</div>
+							<div class="modal-body" align="center">
+								<p>Amount to Buy:</p>
+              		<div class="input-group" style="max-width:300px;">
+              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
+              			<span class="input-group-addon">&nbsp;USDX&nbsp;</span>
+              		</div>
+              		<br/>
+              		<p>Effective Rate:</p>
+              		<div class="input-group" style="max-width:300px;">
+              			<span id="modalRateDisplay"  class="form-control" placeholder="0"></span>
+              			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
+              		</div>
+              		<br/>
+              		<p>Total:</p>
+              		<div class="input-group" style="max-width:300px;">
+              			<input type="text" id="targetAmount" required="required" placeholder="0" class="form-control">
+              			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
+              		</div>
+              		<br/>
+								<span id="buyModalRateNQT" style="display:none;"></span>
+								<br/>
+								<div class="form-group" style="max-width:300px;">
+									<label for="secretPhrase" style="color:white"><b>Your Account Secret Phrase:</b></label>
+            						<!--button type="button" class="btn btn-qr btn-xs" data-toggle="modal" data-target="#reader1">
+            							<i class="fa fa-qrcode"></i>
+            						</button-->
+            						<div class="iconic-input">
+            							<i class="fa fa-key"></i>
+            							<input type="password" class="form-control" id="modalSecretPhrase" placeholder="required">
+            							<div id="modalErrorMessage"></div>
+            						</div>
+            		</div>
+            			<br/>
+            			<p><i style="float:right;">The cost of this transaction is 1 BLX</i></p>
+            	</div>
+            	<div class="modal-footer">
+            		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            		<button type="button" class="btn btn-info" onclick="swap();" data-dismiss="modal">Submit</button>
+            	</div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="sellModal" role="dialog">
+					<div class="modal-dialog">
+						<div class="modal-content" >
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title"><b>Sell USDX :</b></h4>
+							</div>
+							<div class="modal-body">
+								<span id="">
+								<div class="form-group">
+									<label for="secretPhrase"><b>Enter Your Account Secret Phrase:</b></label>
+            						<!--button type="button" class="btn btn-qr btn-xs" data-toggle="modal" data-target="#reader1">
+            							<i class="fa fa-qrcode"></i>
+            						</button-->
+            						<div class="iconic-input">
+            							<i class="fa fa-key"></i>
+            							<input type="password" class="form-control" id="modalSecretPhrase" placeholder="required">
+            							<div id="modalErrorMessage"></div>
+            						</div>
+            		</div>
+            			<br/>
+            			<p><i style="float:right;">The cost of this transaction is 1 BLX.</i></p>
+            	</div>
+            	<div class="modal-footer">
+            		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            		<button type="button" class="btn btn-info" onclick="swap();" data-dismiss="modal">Submit</button>
+            	</div>
+            </div>
+          </div>
+        </div>
+			</section>
+		</section>
+	</section>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/constants.js"></script>
+	<script src="js/freemarket_scripts.js"></script>
+	<script src="js/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+	<script>
+		var myVar = setInterval(function() {
+    price()
+  	}, 6000);
+		function price() {
+	$.getJSON(Constants.apiUrl, {
+      requestType: "getExchanges",
+      currency: Constants.USDXId
+    }, 
+      function(request) {
+      	var rate = request.exchanges[0].rateNQT/1000000;
+      	document.getElementById("usdx").innerText = rate.toFixed(6);
+      })}
+	</script>
+	<script>
+		//var myVar = setInterval(function() {
+    //chartData()
+  	//}, 6000);
+		//function chartData() {
+		//var genesisDate = new Date("05/07/2021 12:34:00");
+		//var genesisEpoch = genesisDate.getTime()/1000;
+		//var today = Math.round(Date.now()/1000);
+		//var dayAgo = today - 86440;
+		//var dayAgoStamp = dayAgo - genesisEpoch;
+		$.getJSON(Constants.apiUrl, {
+			requestType: "getAllExchanges",
+			currency: Constants.USDXId
+		},
+		function(request) {
+			var data = [];
+			var labels = [];
+			for (i = request.exchanges.length - 1; i >= 0; i--) {
+				var genesisDate = new Date("05/07/2021 12:34:00");
+				var genesisEpoch = genesisDate.getTime()/1000;
+				var date = request.exchanges[i].timestamp;
+				var blockEpoch = genesisEpoch + date;
+				var blockDate = new Date(blockEpoch*1000);
+				var price = request.exchanges[i].rateNQT/1000000;
+				data.push(price);
+				labels.push(moment(blockDate).format('MM/DD'));
+			}
+			renderChart(data, labels);
+		})
+		function renderChart(data, labels) {
+			var ctx = document.getElementById("myChart").getContext('2d');
+			ctx.canvas.width  = window.innerWidth;
+  		ctx.canvas.height = window.innerHeight;
+
+  		var gradient = ctx.createLinearGradient(0, 0, 0, 300);
+    	gradient.addColorStop(0, 'rgba(3, 201, 169, 0)');
+    	gradient.addColorStop(1, 'rgba(3, 201, 169, 0.4)');
+			var myChart = new Chart(ctx, {
+				type: 'line',
+				options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+              	xAxes: [ {
+          			 display: false
+              } ]
+            }
+         },
+				data: {
+					labels: labels,
+					datasets: [{
+						label: 'BLX / USDX Price',
+						data: data,
+						borderColor: 'rgba(3, 201, 169, 1)',
+						backgroundColor: gradient,
+						borderWidth: 2,
+        		pointRadius: 2
+					}]
+				}})}
+	</script>
+	<script>
+	$.getJSON(Constants.apiUrl, {
+      requestType: "getSellOffers",
+      currency: Constants.USDXId,
+      availableOnly: "true"
+    }, 
+      function(request) {
+      for (var i = 0; i < request.offers.length ; i++) {
+      var rate = request.offers[i].rateNQT
+      var buyOfferRate = request.offers[i].rateNQT/1000000;
+      var buyOfferLimit = request.offers[i].limit/100;
+      var buyOfferSupply = request.offers[i].supply/100;
+      var rows;
+      rows += '<tr>';
+      rows += '<td><a href="#buyModal" data-val="'+rate+'" data-toggle="modal" data-target="#buyModal" onclick="previewModal();">' + buyOfferSupply.toLocaleString() + '</a></td>';
+      rows += '<td><a href="#buyModal" data-val="'+rate+'" data-toggle="modal" data-target="#buyModal" onclick="previewModal();">' + buyOfferLimit.toLocaleString() + '</a></td>';
+      rows += '<td><a href="#buyModal" data-val="'+rate+'" data-toggle="modal" data-target="#buyModal" onclick="previewModal();">' + buyOfferRate.toFixed(6) + ' BLX</a></td>';
+      rows += '</tr>';
+    }
+    $("#buy_table_body").html(rows);
+    })
+</script>
+<script>
+	$.getJSON(Constants.apiUrl, {
+      requestType: "getBuyOffers",
+      currency: Constants.USDXId,
+      availableOnly: "true"
+    }, 
+      function(request) {
+      for (var i = 0; i < request.offers.length ; i++) {
+      var sellOfferRate = request.offers[i].rateNQT/1000000;
+      var sellOfferLimit = request.offers[i].limit/100;
+      var sellOfferSupply = request.offers[i].supply/100;
+      var rows;
+      rows += '<tr>';
+      rows += '<td><a href="#sellModal" data-toggle="modal" data-target="#sellModal" onclick="previewModal();">' + sellOfferSupply.toLocaleString() + '</a></td>';
+      rows += '<td><a href="#sellModal" data-toggle="modal" data-target="#sellModal" onclick="previewModal();">' + sellOfferLimit.toLocaleString() + '</a></td>';
+      rows += '<td><a href="#sellModal" data-toggle="modal" data-target="#sellModal" onclick="previewModal();">' + sellOfferRate.toFixed(6) + ' BLX</a></td>';
+      rows += '</tr>';
+    }
+    $("#sell_table_body").html(rows);
+    })
+</script>
+<script>
+	function previewModal() {
+		$('#buyModal').on('show.bs.modal', function (event) {
+  		var rate = $(event.relatedTarget).data('val');
+  		$("#buyModalRateNQT").text(rate);
+  		var displayRate = rate/1000000;
+  		var displayRate1 = displayRate.toFixed(6);
+  		$("#modalRateDisplay").html(displayRate1);
+});
+	}
+</script>
+</body>
+</html>
+
+
+

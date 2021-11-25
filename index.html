@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="./assets/img/favicon.ico">
     <title>Blue0x | EXCHANGE</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/main.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>	
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
@@ -19,13 +19,13 @@
 			<i class="icon-remove menu-close"></i>
 			<a href="https://blue0x.com" class="smoothScroll">Blue0x|HOME</a>
 			<a href="https://market.blue0x.com" class="smoothScroll">Blue0x|MARKET</a>
-			<a href="https://lite.blue0x.com" class="smoothScroll">Blue0x|LITE</a>
-			<a href="https://explorer.blue0x.com" class="smoothScroll">Verify Transaction</a>
-			<a href="https://learn.blue0x.com" class="smoothScroll">Learn More</a>
+			<!--a href="https://lite.blue0x.com" class="smoothScroll">Blue0x|LITE</a-->
+			<a href="https://explorer.blue0x.com" class="smoothScroll">Blue0x|EXPLORER</a>
+			<a href="https://learn.blue0x.com" class="smoothScroll">Blue0x|LEARN</a>
 			<a href="https://learn.blue0x.com/setup/vps/" class="smoothScroll">Need a Wallet?</a>
 			<a href="https://twitter.com/Blue0x_com"><i class="fab fa-twitter"></i></a>
 			<a href="https://t.me/blue0xcom"><i class="fab fa-telegram-plane"></i></a>
-			<a href="https://discord.gg/8db6CRqM4H"><i class="fab fa-discord"></i></a>
+			<a href="https://discord.com/invite/EbBWRSPW63"><i class="fab fa-discord"></i></a>
 			<a href="https://github.com/theBlue0x"><i class="fab fa-github"></i></a>
 		</div>
 		<div id="menuToggle"><i class="fas fa-bars"></i></div>
@@ -34,10 +34,11 @@
 	<div id="headerwrap">
 		<div class="container">
 			<div class="row">
+				<img src="assets/img/logo.png" class="img-fluid" style="margin-bottom:-42px;">
 				<h1>BLUE0X|<span>EXCHANGE</span></h1>
-				<h2>BLUE0X <span>EXCHANGE</span></h2>
-				<p class="text-white mx-auto mt-2" style="color:white;">Under Development.</p>
-				<a class="myButton" onclick="goBack();" role="button">Go Back</a>
+				<h2>BLUE0X|<span>EXCHANGE</span></h2>
+				<p style="color:white;margin-top:20px;margin-bottom:24px;line-height:22px;">Decentralized Global Cryptocurrency Exchange</p>
+				<a class="myButton" href="./exchange/markets.html" role="button">View Markets</a>&nbsp;<a class="myButton" href="./exchange/swap.html" role="button">&nbsp;Quick Swap&nbsp;</a>
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</div><!-- /headerwrap -->
@@ -46,10 +47,5 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/smoothscroll.js"></script>
 <script src="assets/js/main.js"></script>
-<script>
-	function goBack() {
-  	window.history.back();
-	}
-</script>
 </body>
 </html>
