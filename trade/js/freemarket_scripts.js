@@ -1,6 +1,5 @@
 function setAccountNumber() {
-  if (sessionStorage.getItem("accountRS"))
-  {
+  if (sessionStorage.getItem("accountRS")) {
     document.getElementById("username").innerHTML = "Account";
     sessionStorage.setItem("loginStatus","loggedin");
   } else {
@@ -9,21 +8,16 @@ function setAccountNumber() {
 };
 // Logout script
 function logout(){
-  if (typeof(Storage) != "undefined")
-  {
-    // Clear 	
+  if (typeof(Storage) != "undefined") {
     sessionStorage.removeItem("accountNumber");
     sessionStorage.removeItem("accountRS");
     sessionStorage.removeItem("numericalAccountNumber");
     sessionStorage.removeItem("accountBalance");
     window.location.href = "login.html";
-  }
-  else
-  {
+  } else {
     document.getElementById("result").innerHTML="Sorry, your browser does not support Web Storage.";
   }
 };
-
 // Get variables out of the URL
 function getQueryVariable(variable) {
   var query = window.location.search.substring(1);
@@ -34,16 +28,8 @@ function getQueryVariable(variable) {
   }
   return(false);
 };
-
-// Check to see if the localstorage language parameter is already set on launch, load login page if it is
-function checkInitialLanguageLogin() {
-   window.location.href = "login_view_account.html";
-  };
-
 // For cleaning out any script injection attacks
-
-var regex = /(<([^>]+)>)/ig; // Maybe don't need this
-
+var regex = /(<([^>]+)>)/ig;
 var entityMap = {
   "&": "&amp;",
   "<": "&lt;",
@@ -52,7 +38,7 @@ var entityMap = {
   "'": '&#39;',
   "/": '&#x2F;'
 };		
-
+// Escape HTML scripts
 function escapeHtml(string) {
   return String(string).replace(/[&<>"'\/]/g, function (s) {
     return entityMap[s];

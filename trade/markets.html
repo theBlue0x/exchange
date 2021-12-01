@@ -33,7 +33,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="usdx">0.000000</h4>
+								<h4 id="usdx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -51,7 +51,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="audx">0.000000</h4>
+								<h4 id="audx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -69,7 +69,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="cadx">0.000000</h4>
+								<h4 id="cadx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -89,7 +89,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="chfx">0.000000</h4>
+								<h4 id="chfx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -107,7 +107,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="cnyx">0.000000</h4>
+								<h4 id="cnyx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -125,7 +125,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="eurx">0.000000</h4>
+								<h4 id="eurx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -145,7 +145,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="gbpx">0.000000</h4>
+								<h4 id="gbpx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -163,7 +163,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="iqdx">0.000000</h4>
+								<h4 id="iqdx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -181,7 +181,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="irrx">0.000000</h4>
+								<h4 id="irrx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -201,7 +201,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="jpyx">0.000000</h4>
+								<h4 id="jpyx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -219,7 +219,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="nzdx">0.000000</h4>
+								<h4 id="nzdx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -237,7 +237,7 @@
 							</header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="rubx">0.000000</h4>
+								<h4 id="rubx">0.00000000</h4>
 								<p>BLX</p>
 								</div>
 								<div style="float:right">
@@ -266,7 +266,7 @@
 	}, 
 	function(request) {
 		var rate = request.exchanges[0].rateNQT/1000000;
-		document.getElementById("usdx").innerHTML = rate.toFixed(6);
+		document.getElementById("usdx").innerHTML = rate.toFixed(8);
 		var genesisDate = new Date("05/07/2021 12:34:00");
 		var genesisEpoch = genesisDate.getTime()/1000;
 		var today = Math.round(Date.now()/1000);

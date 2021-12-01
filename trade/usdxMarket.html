@@ -28,11 +28,12 @@
 		}
 	</style>
 </head>
-<body class="full-width" onload="price(); setAccountNumber(); priceUSDX();">
+<body class="full-width" onload="price(); buyOffers(); sellOffers(); setAccountNumber();">
 	<section id="container"> 
 		<script type="text/javascript" src="js/menu.js"></script>
 		<section id="main-content">
 			<section class="wrapper">
+				<span id="txID">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="panel">
@@ -88,8 +89,9 @@
 						</div>
 					</div>
 				</div>
+			</span>
 
-				<div class="modal fade" id="sellLimitModal" tabindex="-1" >
+				<div class="modal fade" id="sellLimitModal">
 					<div class="modal-dialog">
 						<div class="modal-content" >
 							<div class="modal-header">
@@ -99,13 +101,13 @@
 							<div class="modal-body" align="center">
 								<p>Amount to Sell:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
+              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0">
               			<span class="input-group-addon">&nbsp;USDX&nbsp;</span>
               		</div>
               		<br/>
               		<p>Price:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="number" required="required" class="form-control" placeholder="0" onkeyup="preview();">
+              			<input type="number" required="required" class="form-control" placeholder="0">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
               		</div>
               		<br/>
@@ -125,6 +127,7 @@
             				<div class="iconic-input">
             					<i class="fa fa-key"></i>
             					<input type="password" class="form-control" id="modalSecretPhrase" placeholder="required">
+            					<br/>
             				<div id="modalErrorMessage"></div>
             		</div>
             		</div>
@@ -133,7 +136,7 @@
             	</div>
             	<div class="modal-footer">
             		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            		<button type="button" class="btn btn-info" onclick="swap();" data-dismiss="modal">Submit</button>
+            		<button type="button" class="btn btn-info" onclick="publishSellOrder();" data-dismiss="modal">Submit</button>
             	</div>
             </div>
           </div>
@@ -149,13 +152,13 @@
 							<div class="modal-body" align="center">
 								<p>Amount to Buy:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
+              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0">
               			<span class="input-group-addon">&nbsp;USDX&nbsp;</span>
               		</div>
               		<br/>
               		<p>Price:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="number" required="required" class="form-control" placeholder="0" onkeyup="preview();">
+              			<input type="number" required="required" class="form-control" placeholder="0">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
               		</div>
               		<br/>
@@ -183,7 +186,7 @@
             	</div>
             	<div class="modal-footer">
             		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            		<button type="button" class="btn btn-info" onclick="swap();" data-dismiss="modal">Submit</button>
+            		<button type="button" class="btn btn-info" onclick="publishBuyOrder();" data-dismiss="modal">Submit</button>
             	</div>
             </div>
           </div>
@@ -199,7 +202,7 @@
 							<div class="modal-body" align="center">
 								<p>Amount to Buy:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
+              			<input type="number" id="buyBaseAmount" required="required" class="form-control" placeholder="0" onkeyup="previewBuyMarket();">
               			<span class="input-group-addon">&nbsp;USDX&nbsp;</span>
               		</div>
               		<br/>
@@ -211,7 +214,7 @@
               		<br/>
               		<p>Order Total:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="text" id="targetAmount" required="required" placeholder="0" class="form-control">
+              			<input type="text" id="buyTargetAmount" required="required" placeholder="0" class="form-control">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
               		</div>
               		<br/>
@@ -224,8 +227,9 @@
             				</button-->
             				<div class="iconic-input">
             					<i class="fa fa-key"></i>
-            					<input type="password" class="form-control" id="modalSecretPhrase" placeholder="required">
-            				<div id="modalErrorMessage"></div>
+            					<input type="password" class="form-control" id="buySecretPhrase" placeholder="required">
+            					<br/>
+            				<div id="buyModalError"></div>
             		</div>
             		</div>
             			<br/>
@@ -233,13 +237,13 @@
             	</div>
             	<div class="modal-footer">
             		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            		<button type="button" class="btn btn-info" onclick="swap();" data-dismiss="modal">Submit</button>
+            		<button type="button" class="btn btn-info" onclick="buyMarketOrder();" data-dismiss="modal">Submit</button>
             	</div>
             </div>
           </div>
         </div>
 
-        <div class="modal fade" id="sellModal" role="dialog" tabindex="-1" >
+        <div class="modal fade" id="sellModal">
 					<div class="modal-dialog">
 						<div class="modal-content" >
 							<div class="modal-header">
@@ -250,7 +254,7 @@
 								<div class="modal-body" align="center">
 								<p>Amount to Sell:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
+              			<input type="number" id="sellBaseAmount" required="required" class="form-control" placeholder="0" onkeyup="previewSellMarket();">
               			<span class="input-group-addon">&nbsp;USDX&nbsp;</span>
               		</div>
               		<br/>
@@ -262,7 +266,7 @@
               		<br/>
               		<p>Order Total:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="text" id="targetAmount" required="required" placeholder="0" class="form-control">
+              			<input type="text" id="sellTargetAmount" required="required" placeholder="0" class="form-control">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
               		</div>
               		<br/>
@@ -275,8 +279,9 @@
             				</button-->
             				<div class="iconic-input">
             					<i class="fa fa-key"></i>
-            					<input type="password" class="form-control" id="modalSecretPhrase" placeholder="required">
-            					<div id="modalErrorMessage"></div>
+            					<input type="password" class="form-control" id="sellSecretPhrase" placeholder="required">
+            					<br/>
+            					<div id="sellModalError"></div>
             				</div>
             		</div>
             			<br/>
@@ -284,11 +289,13 @@
             	</div>
             	<div class="modal-footer">
             		<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            		<button type="button" class="btn btn-info" onclick="swap();" data-dismiss="modal">Submit</button>
+            		<button type="button" class="btn btn-info" onclick="sellMarketOrder();" data-dismiss="modal">Submit</button>
             	</div>
             </div>
           </div>
-        </div>
+
+        
+        </section>
 			</section>
 		</section>
 	</section>
@@ -301,7 +308,7 @@
 	<script>
 		var myVar = setInterval(function() {
     price()
-  	}, 6000);
+  	}, 12000);
 		function price() {
 	$.getJSON(Constants.apiUrl, {
       requestType: "getExchanges",
@@ -309,73 +316,9 @@
     }, 
       function(request) {
       	var rate = request.exchanges[0].rateNQT/1000000;
-      	document.getElementById("usdx").innerText = rate.toFixed(6);
+      	document.getElementById("usdx").innerText = rate.toFixed(8);
       })}
 	</script>
-	<script>
-	var myVar = setInterval(function() {
-    priceUSDX()
-  	}, 60000);
-	function priceUSDX() {
-	$.getJSON(Constants.apiUrl, {
-		requestType: "getExchanges",
-		currency: Constants.USDXId
-	}, 
-	function(request) {
-		var rate = request.exchanges[0].rateNQT/1000000;
-		document.getElementById("usdx").innerHTML = rate.toFixed(6);
-		var genesisDate = new Date("05/07/2021 12:34:00");
-		var genesisEpoch = genesisDate.getTime()/1000;
-		var today = Math.round(Date.now()/1000);
-		var dayAgo = today - 86440;
-		var weekAgo = today - 604800;
-		var dayAgoStamp = dayAgo - genesisEpoch;
-		var weekAgoStamp = weekAgo - genesisEpoch;
-		$.getJSON(Constants.apiUrl, {
-			requestType: "getExchanges",
-			currency: Constants.USDXId,
-			timestamp: dayAgoStamp
-		},
-		function (dayPrice) {
-			if (dayPrice.exchanges.length != 0) {
-				var i = dayPrice.exchanges.length - 1;
-				var dayRate = dayPrice.exchanges[i].rateNQT/1000000;
-				var day = ((rate - dayRate) / dayRate) * 100;
-				var dayPercent = day.toFixed(2);
-				if (dayPercent >= 0.00){
-					var usdxt = '';
-					usdxt += '<span style="color:#3fcd59">' + dayPercent + '%' + '</span>';
-					document.getElementById("usdxt").innerHTML = usdxt;
-				} else {
-					var usdxt = '';
-					usdxt += '<span style="color:#ff363c">' + dayPercent + '%' + '</span>';
-					document.getElementById("usdxt").innerHTML = usdxt;
-				}
-			} else {
-				var usdxt = '';
-					usdxt += '<span style="color:#3fcd59">0.00%</span>';
-					document.getElementById("usdxt").innerHTML = usdxt;
-			}})
-		$.getJSON(Constants.apiUrl, {
-			requestType: "getExchanges",
-			currency: Constants.USDXId,
-			timestamp: weekAgoStamp
-		},
-		function (weekPrice) {
-			var i = weekPrice.exchanges.length - 1;
-			var weekRate = weekPrice.exchanges[i].rateNQT/1000000;
-			var week = ((rate - weekRate) / weekRate) * 100;
-			var weekPercent = week.toFixed(2);
-			if (weekPercent >= 0.00){
-				var usdxs = '';
-				usdxs += '<span style="color:#3fcd59">' + weekPercent + '%' + '</span>';
-				document.getElementById("usdxs").innerHTML = usdxs;
-			} else {
-				var usdxs = '';
-				usdxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
-				document.getElementById("usdxs").innerHTML = usdxs;
-			}})})}
-		</script>
 	<script>
 		//var myVar = setInterval(function() {
     //chartData()
@@ -436,6 +379,10 @@
 				}})}
 	</script>
 	<script>
+		var myVar = setInterval(function() {
+    sellOffers()
+  	}, 12000);
+  	function sellOffers() {
 	$.getJSON(Constants.apiUrl, {
       requestType: "getSellOffers",
       currency: Constants.USDXId,
@@ -452,13 +399,17 @@
       rows += '<tr>';
       rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + expiry.toLocaleString() + '</a></td>';
       rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferLimit.toLocaleString() + '</a></td>';
-      rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferRate.toFixed(6) + ' BLX</a></td>';
+      rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferRate.toFixed(8) + ' BLX</a></td>';
       rows += '</tr>';
     }
     $("#buy_table_body").html(rows);
-    })
+    })}
 </script>
 <script>
+	var myVar = setInterval(function() {
+    buyOffers()
+  	}, 12000);
+	function buyOffers() {
 	$.getJSON(Constants.apiUrl, {
       requestType: "getBuyOffers",
       currency: Constants.USDXId,
@@ -475,31 +426,168 @@
       rows += '<tr>';
       rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + expiry.toLocaleString() + '</a></td>';
       rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferLimit.toLocaleString() + '</a></td>';
-      rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferRate.toFixed(6) + ' BLX</a></td>';
+      rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferRate.toFixed(8) + ' BLX</a></td>';
       rows += '</tr>';
     }
     $("#sell_table_body").html(rows);
-    })
+    })}
 </script>
 <script>
 	function previewBuyModal() {
 		$('#buyModal').on('show.bs.modal', function (event) {
+			$("#buyBaseAmount").val('');
+			$("#buyTargetAmount").val('');
+			$("#buyModalError").html('');
+			$("#buySecretPhrase").val('');
   		var rate = $(event.relatedTarget).data('val');
   		$("#buyModalRateNQT").text(rate);
   		var displayRate = rate/1000000;
-  		var displayRate1 = displayRate.toFixed(6);
+  		var displayRate1 = displayRate.toFixed(8);
   		$("#modalBuyRateDisplay").html(displayRate1);
 	})}
 </script>
 <script>
 	function previewSellModal() {
 		$('#sellModal').on('show.bs.modal', function (event) {
+			$("#sellBaseAmount").val('');
+			$("#sellTargetAmount").val('');
+			$("#sellModalError").html('');
+			$("#sellSecretPhrase").val('');
   		var rate = $(event.relatedTarget).data('val');
   		$("#sellModalRateNQT").text(rate);
   		var displayRate = rate/1000000;
-  		var displayRate1 = displayRate.toFixed(6);
+  		var displayRate1 = displayRate.toFixed(8);
   		$("#modalSellRateDisplay").html(displayRate1);
 	})}
+</script>
+<script>
+	function previewBuyMarket(){
+		$("#buyModalError").html('');
+		var givenRate = $("#buyModalRateNQT").text();
+		$.getJSON(Constants.apiUrl, {
+			requestType: "getAvailableToBuy",
+			currency: Constants.USDXId,
+			units: $("#buyBaseAmount").val()
+		}, 
+		function(request) {
+			var error = request.errorDescription;
+			if (!error){
+				var rate = request.rateNQT;
+					if (givenRate >= rate) {
+						var amountNeeded = request.amountNQT/1000000;
+						$("#buyTargetAmount").val(amountNeeded);
+					} else {
+						$("#buyModalError").html('<p style="color:red">Insufficient Supply</p>');
+					}
+			} else {
+				$("#buyModalError").html('<p style="color:red">' + error + '</p>');
+			}
+		})
+	}
+</script>
+<script>
+	function previewSellMarket(){
+		$("#sellModalError").html('');
+		console.log($("#sellModalRateNQT").text());
+		var givenRate = $("#sellModalRateNQT").text();
+		$.getJSON(Constants.apiUrl, {
+			requestType: "getAvailableToSell",
+			currency: Constants.USDXId,
+			units: $("#sellBaseAmount").val()
+		}, 
+		function(request) {
+			var error = request.errorDescription;
+			if (!error){
+				var rate = request.rateNQT;
+					if (givenRate >= rate) {
+						var amountNeeded = request.amountNQT/1000000;
+						$("#sellTargetAmount").val(amountNeeded);
+					} else {
+						$("#sellModalError").html('<p style="color:red">Insufficient Supply</p>');
+					}
+			} else {
+				$("#sellModalError").html('<p style="color:red">' + error + '</p>');
+			}
+		})
+	}
+</script>
+<script>
+	function sellMarketOrder() {
+		var units = $("#sellBaseAmount").val()*100;
+		$.post(Constants.apiUrl, {
+      requestType: "currencySell",
+      currency: Constants.USDXId,
+      rateNQT: $("#sellModalRateNQT").text(),
+      units: units,
+      secretPhrase: $("#sellSecretPhrase").val(),
+      feeNQT:100000000,
+      deadline:60
+    },
+    	function(request) {
+    		var parse = JSON.parse(request);
+    		var error = parse.errorDescription;
+    		var txID = parse.transaction;
+    		if (!error) {
+    			var rows = '';
+    			rows += '<div class="row">';
+    			rows += '<div class="col-lg-12">'
+    			rows += '<div class="panel" style="padding:20px;">';
+          rows += '<p>Transaction Successful!</p>';
+          rows += '<p>TX ID: ' + txID + '</p>';
+          rows += '<br/>';
+          rows += '<a class="btn btn-info" href="usdxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
+          $("#txID").html(rows);
+    		} else {
+    			var rows = '';
+    			rows += '<div class="row">';
+    			rows += '<div class="col-lg-12">'
+    			rows += '<div class="panel" style="padding:20px;">';
+          rows += '<p>Transaction Error:</p>';
+          rows += '<p>' + error + '</p>';
+          rows += '<br/>';
+          rows += '<a class="btn btn-info" href="usdxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
+    			$("#txID").html(rows);
+    		}}
+    	)}
+</script>
+<script>
+	function buyMarketOrder() {
+		var units = $("#buyBaseAmount").val()*100;
+		$.post(Constants.apiUrl, {
+      requestType: "currencyBuy",
+      currency: Constants.USDXId,
+      rateNQT: $("#buyModalRateNQT").text(),
+      units: units,
+      secretPhrase: $("#buySecretPhrase").val(),
+      feeNQT:100000000,
+      deadline:60
+    },
+    	function(request) {
+    		var parse = JSON.parse(request);
+    		var error = parse.errorDescription;
+    		var txID = parse.transaction;
+    		if (!error) {
+    			var rows = '';
+    			rows += '<div class="row">';
+    			rows += '<div class="col-lg-12">'
+    			rows += '<div class="panel" style="padding:20px;">';
+          rows += '<p>Transaction Successful!</p>';
+          rows += '<p>TX ID: ' + txID + '</p>';
+          rows += '<br/>';
+          rows += '<a class="btn btn-info" href="usdxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
+          $("#txID").html(rows);
+    		} else {
+    			var rows = '';
+    			rows += '<div class="row">';
+    			rows += '<div class="col-lg-12">'
+    			rows += '<div class="panel" style="padding:20px;">';
+          rows += '<p>Transaction Error:</p>';
+          rows += '<p>' + error + '</p>';
+          rows += '<br/>';
+          rows += '<a class="btn btn-info" href="usdxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
+    			$("#txID").html(rows);
+    		}}
+    	)}
 </script>
 </body>
 </html>

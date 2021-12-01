@@ -79,9 +79,8 @@
               			</select>
               		</div>
               		<br/>
-              		<div id="rateDiv"><i>Effective Swap Rate: <span id="rateBLX">00.000000</span></i></div>
-              		<br/>
-              		<div id="modalError" style="color:red;"></div>
+              		<div id="rateDiv"><i>Effective Swap Rate: <span id="rateBLX"></span></i></div>
+              		<span id="modalError" style="color:red;"></span>
               		<br/>
                     <button type="button" style="margin-bottom:40px" class="btn btn-info" onclick="swapModal();">&nbsp;Preview&nbsp;</button>
             	</div>
@@ -128,6 +127,7 @@
                       <div id="modalErrorMessage"></div>
                     </div>
                   </div>
+                  <br/>
                   <br/>
                   <p><i style="float:right;">The cost of this transaction is 1 BLX</i></p>
                 </div>
@@ -184,7 +184,6 @@
   					code: $("#baseCurrency").val()
   				},
   				function(code){
-
   					var currencyCode = code.currency;
   					$.getJSON(Constants.apiUrl, {
   						requestType: "getAvailableToSell",
@@ -267,7 +266,6 @@
  				}, 
  				function(request) {
  						var rate = request.rateNQT;
-            console.log(rate)
  						var secretPhrase = $("#modalSecretPhrase").val();
  						var units = $("#baseAmount").val() * 100;
  						$.post(Constants.apiUrl, {
@@ -287,8 +285,7 @@
  								$("#txMessage").html("<h4><b>Swap Successful!<br/><br/>TX ID: " + txId + "</b></h4>");
  							} else {
  								$("#txMessage").html(error);
- 							}})})})
- 		}
+ 	}})})})}
 </script>
 </body>
 </html>
