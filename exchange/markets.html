@@ -265,7 +265,6 @@
 		currency: Constants.USDXId
 	}, 
 	function(request) {
-		console.log(request)
 		var rate = request.exchanges[0].rateNQT/1000000;
 		document.getElementById("usdx").innerHTML = rate.toFixed(6);
 		var genesisDate = new Date("05/07/2021 12:34:00");

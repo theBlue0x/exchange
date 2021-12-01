@@ -15,7 +15,7 @@ document.write("<li>");
 document.write("<a href=\"markets.html\">View Markets</a>");
 document.write("</li>");
 document.write("<li>");
-document.write("<a href=\"swap.html\">Swap</a>");
+document.write("<a href=\"swap.html\">Quick Swap</a>");
 document.write("</li>");
 document.write("</div>");
 document.write("<div class=\"top-nav\">");
