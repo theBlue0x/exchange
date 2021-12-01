@@ -28,7 +28,7 @@
 		}
 	</style>
 </head>
-<body class="full-width" onload="price(); setAccountNumber();">
+<body class="full-width" onload="price(); setAccountNumber(); priceUSDX();">
 	<section id="container"> 
 		<script type="text/javascript" src="js/menu.js"></script>
 		<section id="main-content">
@@ -312,6 +312,70 @@
       	document.getElementById("usdx").innerText = rate.toFixed(6);
       })}
 	</script>
+	<script>
+	var myVar = setInterval(function() {
+    priceUSDX()
+  	}, 60000);
+	function priceUSDX() {
+	$.getJSON(Constants.apiUrl, {
+		requestType: "getExchanges",
+		currency: Constants.USDXId
+	}, 
+	function(request) {
+		var rate = request.exchanges[0].rateNQT/1000000;
+		document.getElementById("usdx").innerHTML = rate.toFixed(6);
+		var genesisDate = new Date("05/07/2021 12:34:00");
+		var genesisEpoch = genesisDate.getTime()/1000;
+		var today = Math.round(Date.now()/1000);
+		var dayAgo = today - 86440;
+		var weekAgo = today - 604800;
+		var dayAgoStamp = dayAgo - genesisEpoch;
+		var weekAgoStamp = weekAgo - genesisEpoch;
+		$.getJSON(Constants.apiUrl, {
+			requestType: "getExchanges",
+			currency: Constants.USDXId,
+			timestamp: dayAgoStamp
+		},
+		function (dayPrice) {
+			if (dayPrice.exchanges.length != 0) {
+				var i = dayPrice.exchanges.length - 1;
+				var dayRate = dayPrice.exchanges[i].rateNQT/1000000;
+				var day = ((rate - dayRate) / dayRate) * 100;
+				var dayPercent = day.toFixed(2);
+				if (dayPercent >= 0.00){
+					var usdxt = '';
+					usdxt += '<span style="color:#3fcd59">' + dayPercent + '%' + '</span>';
+					document.getElementById("usdxt").innerHTML = usdxt;
+				} else {
+					var usdxt = '';
+					usdxt += '<span style="color:#ff363c">' + dayPercent + '%' + '</span>';
+					document.getElementById("usdxt").innerHTML = usdxt;
+				}
+			} else {
+				var usdxt = '';
+					usdxt += '<span style="color:#3fcd59">0.00%</span>';
+					document.getElementById("usdxt").innerHTML = usdxt;
+			}})
+		$.getJSON(Constants.apiUrl, {
+			requestType: "getExchanges",
+			currency: Constants.USDXId,
+			timestamp: weekAgoStamp
+		},
+		function (weekPrice) {
+			var i = weekPrice.exchanges.length - 1;
+			var weekRate = weekPrice.exchanges[i].rateNQT/1000000;
+			var week = ((rate - weekRate) / weekRate) * 100;
+			var weekPercent = week.toFixed(2);
+			if (weekPercent >= 0.00){
+				var usdxs = '';
+				usdxs += '<span style="color:#3fcd59">' + weekPercent + '%' + '</span>';
+				document.getElementById("usdxs").innerHTML = usdxs;
+			} else {
+				var usdxs = '';
+				usdxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
+				document.getElementById("usdxs").innerHTML = usdxs;
+			}})})}
+		</script>
 	<script>
 		//var myVar = setInterval(function() {
     //chartData()
