@@ -1,6 +1,6 @@
 .modal .modal-dialog .modal-content {  
-    background-color: #242424;
-    border-radius: 20px;
+    background-color: #000;
+    border-radius: 10px;
 }
 .modal-footer {
     border-top: none;
@@ -9,10 +9,7 @@
 
 .modal .modal-header {  
     background-color: #2a84f8;
-    border-radius: 20px 20px 0 0;
-}
-.modal {
-    border-radius: 20px;
+    border-radius: 10px 10px 0 0;
 }
 
 a {
@@ -22,18 +19,15 @@ a:hover {
     color: blue;
 }
 .panel {
-    border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #212429;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .panel-heading {
-    border-color: #1e1e1e;
     font-size: 16px;
     font-weight: 600;
     background-color: #25282e;
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .panel-title {
@@ -42,7 +36,6 @@ a:hover {
     font-weight: 400;
     margin-bottom: 0;
     margin-top: 0;
-    font-family: monospace;
 }
 .label {
     padding: 0.5em 0.8em;
@@ -98,10 +91,6 @@ a:hover {
 .text-info {
     color: #8175c7;
 }
-.modal-content {
-    border: none;
-}
-
 .modal-header {
     background: #33afec;
     color: #fff;

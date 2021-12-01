@@ -11,11 +11,11 @@ document.write("<a id=\"logo_link\" href=\"markets.html\" class=\"logo\">Blue0x|
 document.write("<!--logo end-->");
 document.write("<div class=\"horizontal-menu navbar-collapse collapse\">");
 document.write("<ul class=\"nav navbar-nav\">");
-document.write("<li class=\"dropdown\">");
+document.write("<li>");
 document.write("<a href=\"markets.html\">View Markets</a>");
 document.write("</li>");
-document.write("<li class=\"dropdown\">");
-document.write("<a href=\"swap.html\">Quick Swap</a>");
+document.write("<li>");
+document.write("<a href=\"swap.html\">Swap</a>");
 document.write("</li>");
 document.write("</div>");
 document.write("<div class=\"top-nav\">");

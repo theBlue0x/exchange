@@ -1,5 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
-
+a.logo {
+    margin-left:10px;
+}
 .fa {
     color: white;
 }
@@ -135,11 +136,10 @@ a, a:hover, a:focus {
     left: 0;
     right: 0;
     z-index: 1002;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .white-bg {
-    background: #191b1f;
+    background: #0f1012;
 }
 
 .wrapper {
@@ -3346,6 +3346,7 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
     padding-top: 20px;
     color: white;
     font-weight: 600;
+    font-family: monospace;
 }
 
 .full-width .navbar-header {

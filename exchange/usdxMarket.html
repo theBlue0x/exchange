@@ -8,6 +8,7 @@
 	<title>Blue0x | EXCHANGE</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-reset.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Assistant" rel="stylesheet">
 	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">  
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/style-responsive.css" rel="stylesheet">
@@ -25,7 +26,7 @@
 			border:  none;
 		}
 		p {
-			color: white;
+			color: #d1d1d1;
 			font-weight: 600;
 		}
 		.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
@@ -56,7 +57,7 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="panel">
-							<header class="panel-heading" style="color:white;">
+							<header class="panel-heading" style="color:#d1d1d1;">
 								<span>Buy USDX</span><a data-target="#buyLimitModal" data-toggle="modal" style="float:right;font-size:14px;">Limit Order</a>
 							</header>
 							<div class="panel-body" style="max-height:185px;overflow:auto;padding-left:15px;">
@@ -75,7 +76,7 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="panel">
-							<header class="panel-heading" style="color:white;">
+							<header class="panel-heading" style="color:#d1d1d1;">
 								<span>Sell USDX</span><a data-toggle="modal" data-target="#sellLimitModal"style="float:right;font-size:14px;">Limit Order</a>
 							</header>
 							<div class="panel-body" style="max-height:185px;overflow:auto;padding-left: 15px;">
@@ -99,31 +100,31 @@
 						<div class="modal-content" >
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title"><b>Sell USDX</b></h4>
+								<h4 class="modal-title"><b>Sell USDX (Limit Order)</b></h4>
 							</div>
 							<div class="modal-body" align="center">
-								<p>Amount to Sell</p>
+								<p>Amount to Sell:</p>
               		<div class="input-group" style="max-width:300px;">
               			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
               			<span class="input-group-addon">&nbsp;USDX&nbsp;</span>
               		</div>
               		<br/>
-              		<p>Price</p>
+              		<p>Price:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="number" id="limitRate" required="required" class="form-control" placeholder="0" onkeyup="preview();">
+              			<input type="number" required="required" class="form-control" placeholder="0" onkeyup="preview();">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
               		</div>
               		<br/>
-              		<p>Order Total</p>
+              		<p>Order Total:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="text" id="targetAmount" required="required" placeholder="0" class="form-control">
+              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
               		</div>
               		<br/>
 								<span id="buyModalRateNQT" style="display:none;"></span>
 								<br/>
-								<div class="form-group">
-									<label for="secretPhrase"><b>Enter Your Account Secret Phrase</b></label>
+								<div class="form-group" style="max-width:400px;color:white;">
+									<label for="secretPhrase"><b>Enter Your Account Secret Phrase:</b></label>
             				<!--button type="button" class="btn btn-qr btn-xs" data-toggle="modal" data-target="#reader1">
             					<i class="fa fa-qrcode"></i>
             				</button-->
@@ -144,27 +145,27 @@
           </div>
         </div>
 
-				<div class="modal fade" id="buyLimitModal" tabindex="-1" >
+				<div class="modal fade" id="buyLimitModal">
 					<div class="modal-dialog">
 						<div class="modal-content" >
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title"><b>Buy USDX</b></h4>
+								<h4 class="modal-title"><b>Buy USDX (Limit Order)</b></h4>
 							</div>
 							<div class="modal-body" align="center">
-								<p>Amount to Buy</p>
+								<p>Amount to Buy:</p>
               		<div class="input-group" style="max-width:300px;">
               			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
               			<span class="input-group-addon">&nbsp;USDX&nbsp;</span>
               		</div>
               		<br/>
-              		<p>Price</p>
+              		<p>Price:</p>
               		<div class="input-group" style="max-width:300px;">
-              			<input type="number" id="limitRate" required="required" class="form-control" placeholder="0" onkeyup="preview();">
+              			<input type="number" required="required" class="form-control" placeholder="0" onkeyup="preview();">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
               		</div>
               		<br/>
-              		<p>Order Total</p>
+              		<p>Order Total:</p>
               		<div class="input-group" style="max-width:300px;">
               			<input type="text" id="targetAmount" required="required" placeholder="0" class="form-control">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
@@ -172,8 +173,8 @@
               		<br/>
 								<span id="buyModalRateNQT" style="display:none;"></span>
 								<br/>
-								<div class="form-group">
-									<label for="secretPhrase"><b>Enter Your Account Secret Phrase</b></label>
+								<div class="form-group" style="max-width:400px;color:white;">
+									<label for="secretPhrase"><b>Enter Your Account Secret Phrase:</b></label>
             				<!--button type="button" class="btn btn-qr btn-xs" data-toggle="modal" data-target="#reader1">
             					<i class="fa fa-qrcode"></i>
             				</button-->
@@ -194,7 +195,7 @@
           </div>
         </div>
 
-				<div class="modal fade" id="buyModal" tabindex="-1" >
+				<div class="modal fade" id="buyModal">
 					<div class="modal-dialog">
 						<div class="modal-content" >
 							<div class="modal-header">
@@ -202,19 +203,19 @@
 								<h4 class="modal-title"><b>Buy USDX</b></h4>
 							</div>
 							<div class="modal-body" align="center">
-								<p>Amount to Buy</p>
+								<p>Amount to Buy:</p>
               		<div class="input-group" style="max-width:300px;">
               			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
               			<span class="input-group-addon">&nbsp;USDX&nbsp;</span>
               		</div>
               		<br/>
-              		<p>Price</p>
+              		<p>Price:</p>
               		<div class="input-group" style="max-width:300px;">
               			<span id="modalBuyRateDisplay"  class="form-control" placeholder="0"></span>
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
               		</div>
               		<br/>
-              		<p>Order Total</p>
+              		<p>Order Total:</p>
               		<div class="input-group" style="max-width:300px;">
               			<input type="text" id="targetAmount" required="required" placeholder="0" class="form-control">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
@@ -222,8 +223,8 @@
               		<br/>
 								<span id="buyModalRateNQT" style="display:none;"></span>
 								<br/>
-								<div class="form-group">
-									<label for="secretPhrase"><b>Enter Your Account Secret Phrase</b></label>
+								<div class="form-group" style="max-width:400px;color:white;">
+									<label for="secretPhrase"><b>Enter Your Account Secret Phrase:</b></label>
             				<!--button type="button" class="btn btn-qr btn-xs" data-toggle="modal" data-target="#reader1">
             					<i class="fa fa-qrcode"></i>
             				</button-->
@@ -249,23 +250,23 @@
 						<div class="modal-content" >
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title"><b>Sell USDX :</b></h4>
+								<h4 class="modal-title"><b>Sell USDX</b></h4>
 							</div>
 							<div class="modal-body">
 								<div class="modal-body" align="center">
-								<p>Amount to Sell</p>
+								<p>Amount to Sell:</p>
               		<div class="input-group" style="max-width:300px;">
               			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();">
               			<span class="input-group-addon">&nbsp;USDX&nbsp;</span>
               		</div>
               		<br/>
-              		<p>Price</p>
+              		<p>Price:</p>
               		<div class="input-group" style="max-width:300px;">
               			<span id="modalSellRateDisplay"  class="form-control" placeholder="0"></span>
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
               		</div>
               		<br/>
-              		<p>Order Total</p>
+              		<p>Order Total:</p>
               		<div class="input-group" style="max-width:300px;">
               			<input type="text" id="targetAmount" required="required" placeholder="0" class="form-control">
               			<span class="input-group-addon">&nbsp;BLX&nbsp;</span>
@@ -273,8 +274,8 @@
               		<br/>
 								<span id="sellModalRateNQT" style="display:none;"></span>
 								<br/>
-								<div class="form-group">
-									<label for="secretPhrase"><b>Enter Your Account Secret Phrase</b></label>
+								<div class="form-group" style="max-width:400px;color:white;">
+									<label for="secretPhrase"><b>Enter Your Account Secret Phrase:</b></label>
             				<!--button type="button" class="btn btn-qr btn-xs" data-toggle="modal" data-target="#reader1">
             					<i class="fa fa-qrcode"></i>
             				</button-->
@@ -350,10 +351,9 @@
 			var ctx = document.getElementById("myChart").getContext('2d');
 			ctx.canvas.width  = window.innerWidth;
   		ctx.canvas.height = window.innerHeight;
-
   		var gradient = ctx.createLinearGradient(0, 0, 0, 300);
-    	gradient.addColorStop(0, 'rgba(3, 201, 169, 0)');
-    	gradient.addColorStop(1, 'rgba(3, 201, 169, 0.4)');
+    	gradient.addColorStop(0, 'rgba(3, 201, 169, 0.4)');
+    	gradient.addColorStop(1, 'rgba(3, 201, 169, 0)');
 			var myChart = new Chart(ctx, {
 				type: 'line',
 				options: {
@@ -392,9 +392,9 @@
       var buyOfferSupply = request.offers[i].supply/100;
       var rows;
       rows += '<tr>';
-      rows += '<td><a href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + expiry + '</a></td>';
-      rows += '<td><a href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferLimit.toLocaleString() + '</a></td>';
-      rows += '<td><a href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferRate.toFixed(6) + ' BLX</a></td>';
+      rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + expiry.toLocaleString() + '</a></td>';
+      rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferLimit.toLocaleString() + '</a></td>';
+      rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferRate.toFixed(6) + ' BLX</a></td>';
       rows += '</tr>';
     }
     $("#buy_table_body").html(rows);
@@ -407,7 +407,6 @@
       availableOnly: "true"
     }, 
       function(request) {
-      console.log(request)
       for (var i = 0; i < request.offers.length ; i++) {
       var sellRate = request.offers[i].rateNQT;
       var expiry = request.offers[i].expirationHeight;
@@ -416,9 +415,9 @@
       var sellOfferSupply = request.offers[i].supply/100;
       var rows;
       rows += '<tr>';
-      rows += '<td><a href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + expiry + '</a></td>';
-      rows += '<td><a href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferLimit.toLocaleString() + '</a></td>';
-      rows += '<td><a href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferRate.toFixed(6) + ' BLX</a></td>';
+      rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + expiry.toLocaleString() + '</a></td>';
+      rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferLimit.toLocaleString() + '</a></td>';
+      rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferRate.toFixed(6) + ' BLX</a></td>';
       rows += '</tr>';
     }
     $("#sell_table_body").html(rows);

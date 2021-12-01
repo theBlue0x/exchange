@@ -22,12 +22,24 @@
       color:white;
       background-color:#2a84f8;
     }
-    .panel {
-      background-color: #191b1f;
-      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    .panel{
+      background-color: #0b0a0e;
+      border: none;
+      margin-top: 2vh;
     }
-    h4 {
-      color: #b3b3b3;
+    .panel-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    p {
+      color: #d1d1d1;
+      font-weight: 600;
+    }
+    .modal { 
+      background-color:#24242a!important; 
+      border-radius: 0px;
+      border: none;
     }
   </style>
 </head>
@@ -36,13 +48,12 @@
     <script type="text/javascript" src="js/menu.js"></script>
     <section id="main-content">
       <section class="wrapper">
-        <div class="row">
           <div class="col-sm-6 col-sm-offset-3">
-            <section class="panel" style="min-height: 80vh;">
+            <section class="panel">
               <header class="panel-heading">
                 <span>Quick Swap</span>
               </header>
-              	<div class="panel-body" align="center" style="margin-top:6%;">
+              	<div class="panel-body" align="center" style="color:#d1d1d1;">
               		<div id="txMessage">
               		<h4>You Send</h4>
               		<div class="input-group" style="max-width:300px;">
@@ -68,48 +79,64 @@
               			</select>
               		</div>
               		<br/>
-              		<div id="rateDiv" style="display:none"><i>Effective Swap Rate: <span id="rateBLX"></span></i></div>
+              		<div id="rateDiv"><i>Effective Swap Rate: <span id="rateBLX">00.000000</span></i></div>
               		<br/>
               		<div id="modalError" style="color:red;"></div>
               		<br/>
-                    <button type="button" class="btn btn-info" onclick="swapModal();">Preview Swap</button>
+                    <button type="button" style="margin-bottom:40px" class="btn btn-info" onclick="swapModal();">&nbsp;Preview&nbsp;</button>
             	</div>
             	</div>
-            	<div class="modal fade" id="swapModal" role="dialog">
-            		<div class="modal-dialog">
-            			<div class="modal-content" >
-            				<div class="modal-header">
-            					<button type="button" class="close" data-dismiss="modal">&times;</button>
-            					<h3 class="modal-title">Preview Swap</h3>
-            				</div>
-            				<div class="modal-body">
-            					<span id="modalRate" style="display:none;"></span>
-            					<span id="modalBaseAmount" style="display:none;"></span>
-            					<p><b>Base Amount:</b> <span id="modalBaseAmountDisplay"></span></p> 
-                      <p><b>Rate:</b> <span id="modalRateDisplay"></span></p>
-            					<p><b>You Receive:</b> <span id="modalTargetAmount"></span></p>
-            					<br/>
-            					<div class="form-group">
-            						<label for="secretPhrase"><b>Enter Your Account Secret Phrase:</b></label>
-            						<!--button type="button" class="btn btn-qr btn-xs" data-toggle="modal" data-target="#reader1">
-            							<i class="fa fa-qrcode"></i>
-            						</button-->
-            						<div class="iconic-input">
-            							<i class="fa fa-key"></i>
-            							<input type="password" class="form-control" id="modalSecretPhrase" placeholder="required">
-            							<div id="modalErrorMessage"></div>
-            						</div>
-            					</div>
-            					<br/>
-            					<p><i style="float:right;">The cost of this transaction is 1 BLX.</i></p>
-            				</div>
-            				<div class="modal-footer">
-            					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            					<button type="button" class="btn btn-info" onclick="swap();" data-dismiss="modal">Submit</button>
-            				</div>
-            			</div>
-            		</div>
-            	</div>
+
+              <div class="modal fade" id="swapModal">
+                <div class="modal-dialog">
+                  <div class="modal-content" >
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title"><b>Preview Swap</b></h4>
+                    </div>
+                    <div class="modal-body" align="center" style="color:white;">
+                      <span id="modalRate" style="display:none;"></span>
+                      <span id="modalBaseAmount" style="display:none;"></span>
+                      <p>Amount to Swap:</p>
+                      <div class="input-group" style="max-width:300px;">
+                        <span id="modalBaseAmountDisplay" class="form-control"></span>
+                        <span id="modalCurrencyAdd" class="input-group-addon"></span>
+                      </div>
+                      <br/>
+                      <p>Effective Rate:</p>
+                      <div class="input-group" style="max-width:300px;">
+                        <span id="modalRateDisplay"  class="form-control"></span>
+                        <span class="input-group-addon">&nbsp;BLX&nbsp;</span>
+                      </div>
+                      <br/>
+                      <p>You Receive:</p>
+                      <div class="input-group" style="max-width:300px;">
+                        <span id="modalTargetAmount" class="form-control"></span>
+                        <span class="input-group-addon">&nbsp;BLX&nbsp;</span>
+                      </div>
+                      <br/>
+                      <span id="buyModalRateNQT" style="display:none;"></span>
+                      <br/>
+                      <div class="form-group" style="max-width:400px;color:white;">
+                        <label for="secretPhrase"><b>Your Account Secret Phrase:</b></label>
+                    <!--button type="button" class="btn btn-qr btn-xs" data-toggle="modal" data-target="#reader1">
+                      <i class="fa fa-qrcode"></i>
+                    </button-->
+                    <div class="iconic-input">
+                      <i class="fa fa-key"></i>
+                      <input type="password" class="form-control" id="modalSecretPhrase" placeholder="required">
+                      <div id="modalErrorMessage"></div>
+                    </div>
+                  </div>
+                  <br/>
+                  <p><i style="float:right;">The cost of this transaction is 1 BLX</i></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-info" onclick="swap();" data-dismiss="modal">Confirm</button>
+                </div>
+              </div>
+            </div>
             </section>
           </div>
         </div>
@@ -122,7 +149,6 @@
   <script src="js/freemarket_scripts.js"></script>
   <script>
   	var currency = {
-  		Select: ["BLX"],
   		USDX: ["BLX"],
   		AUDX: ["BLX"],
   		CADX: ["BLX"],
@@ -158,6 +184,7 @@
   					code: $("#baseCurrency").val()
   				},
   				function(code){
+
   					var currencyCode = code.currency;
   					$.getJSON(Constants.apiUrl, {
   						requestType: "getAvailableToSell",
@@ -210,11 +237,12 @@
  					var targetCurrency = $("#targetCurrency").val();
  					if (amountNeeded >= baseAmount){
  					$("#swapModal").modal();
+          $("#modalCurrencyAdd").html(baseCurrency);
  					$("#modalRate").text(rate);
- 					$("#modalRateDisplay").html(rate + ' BLX / ' + baseCurrency);
+ 					$("#modalRateDisplay").html(rate);
  					$("#modalBaseAmount").html(baseAmount);
- 					$("#modalBaseAmountDisplay").html(baseAmount + ' ' + baseCurrency);
- 					$("#modalTargetAmount").html(amountNeeded + ' ' + targetCurrency);
+ 					$("#modalBaseAmountDisplay").html(baseAmount);
+ 					$("#modalTargetAmount").html(amountNeeded);
  					} else {
  						$("#modalError").html("Unable to fill order amount");
  					}

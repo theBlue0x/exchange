@@ -35,10 +35,6 @@
         top: 0px;
     }
 
-    .custom-bar-chart {
-        margin-bottom: 40px;
-    }
-
     .dcjq-icon {
         top: 10px;
     }
@@ -172,6 +168,10 @@
     .table-responsive {
     border: none;
     max-height: 22vh;
+    }
+
+    .pull-right {
+    margin-right: -20px;
     }
 }
 
