@@ -64,13 +64,13 @@
               		<br/>
               		<div class="input-group" style="max-width:300px;">
               			<span class="input-group-addon">&nbsp;Amount&nbsp;</span>
-              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0" onkeyup="preview();" style="border:0.1px solid #b7b7b7">
+              			<input type="number" id="baseAmount" required="required" class="form-control" placeholder="0.00" onkeyup="preview();" style="border:0.1px solid #b7b7b7">
               		</div>
               		<i class="fa fa-arrow-down" style="margin-top:24px;margin-bottom:8px;"></i>
               		<h4>You Receive</h4>
               		<div class="input-group" style="max-width:300px;">
               			<span class="input-group-addon">&nbsp;Amount&nbsp;</span>
-              			<input type="text" id="targetAmount" required="required" placeholder="0" class="form-control" style="border:0.1px solid #b7b7b7">
+              			<input type="text" id="targetAmount" required="required" placeholder="0.00" class="form-control" style="border:0.1px solid #b7b7b7">
               		</div>
               		<br/>
               		<div class="input-group" style="max-width:300px;">
@@ -79,8 +79,8 @@
               			</select>
               		</div>
               		<br/>
-              		<div id="rateDiv"><i>Effective Swap Rate: <span id="rateBLX"></span></i></div>
-              		<span id="modalError" style="color:red;"></span>
+              		<div><i>Effective Swap Rate: <span id="rateBLX"></span></i></div>
+              		<div id="error" style="color:red;"></div>
               		<br/>
                     <button type="button" style="margin-bottom:40px" class="btn btn-info" onclick="swapModal();">&nbsp;Preview&nbsp;</button>
             	</div>
@@ -96,19 +96,19 @@
                     <div class="modal-body" align="center" style="color:white;">
                       <span id="modalRate" style="display:none;"></span>
                       <span id="modalBaseAmount" style="display:none;"></span>
-                      <p>Amount to Swap:</p>
+                      <p class="centered">Amount to Swap:</p>
                       <div class="input-group" style="max-width:300px;">
                         <span id="modalBaseAmountDisplay" class="form-control"></span>
                         <span id="modalCurrencyAdd" class="input-group-addon"></span>
                       </div>
                       <br/>
-                      <p>Effective Rate:</p>
+                      <p class="centered">Effective Rate:</p>
                       <div class="input-group" style="max-width:300px;">
                         <span id="modalRateDisplay"  class="form-control"></span>
                         <span class="input-group-addon">&nbsp;BLX&nbsp;</span>
                       </div>
                       <br/>
-                      <p>You Receive:</p>
+                      <p class="centered">You Receive:</p>
                       <div class="input-group" style="max-width:300px;">
                         <span id="modalTargetAmount" class="form-control"></span>
                         <span class="input-group-addon">&nbsp;BLX&nbsp;</span>
@@ -127,7 +127,6 @@
                       <div id="modalErrorMessage"></div>
                     </div>
                   </div>
-                  <br/>
                   <br/>
                   <p><i style="float:right;">The cost of this transaction is 1 BLX</i></p>
                 </div>
@@ -178,6 +177,7 @@
   	</script>
   	<script>
   		function preview(){
+      $("#error").text('');
   		var baseCurrency = $("#baseCurrency").val();
   				$.getJSON(Constants.apiUrl,{
   					requestType: "getCurrency",
@@ -185,32 +185,32 @@
   				},
   				function(code){
   					var currencyCode = code.currency;
+            var baseAmount = $("#baseAmount").val()*100;
+            if (baseAmount > 0) {
   					$.getJSON(Constants.apiUrl, {
   						requestType: "getAvailableToSell",
   						currency: currencyCode,
-  						units: $("#baseAmount").val()
-  					}, 
+  						units: baseAmount
+  					},
   					function(request) {
-              var error = request.errorDescription;
+              var error = request.errorCode;
               if (!error){
   						var rate = request.rateNQT/1000000;
-  						var amountNeeded = request.amountNQT/1000000;
-  						var baseAmount = $("#baseAmount").val();
+  						var amountNeeded = request.amountNQT/100000000;
   						$("#targetAmount").val(amountNeeded);
-  						document.getElementById("rateDiv").style.display = "block";
   						$("#rateBLX").html('<span>' + rate + ' BLX</span>');
             } else {
-              document.getElementById("rateDiv").style.display = "block";
-              $("#rateBLX").html('<p style="color:red">' + error + '</p>');
+
+              $("#error").text('Only 2 decimals places allowed.');
             }
   					})
-          })}
+          }})}
  </script>
  <script>
   	function clearAmounts() {
   		$("#baseAmount").val('');
   		$("#targetAmount").val('');
-  		document.getElementById("rateDiv").style.display = "none";
+  		$("#error").text('');
   	}
  </script>
  <script>
@@ -222,31 +222,32 @@
  			},
  			function(code){
  				var currencyCode = code.currency;
+        var baseAmount = $("#baseAmount").val()*100;
  				$.getJSON(Constants.apiUrl, {
  					requestType: "getAvailableToSell",
  					currency: currencyCode,
- 					units: $("#baseAmount").val()
+ 					units: baseAmount
  				}, 
  				function(request) {
  					var error = request.errorDescription;
  					if (!error){
  					var rate = request.rateNQT/1000000;
- 					var amountNeeded = request.amountNQT/1000000;
- 					var baseAmount = $("#baseAmount").val();
+          var baseAmountDisplay = $("#baseAmount").val();
+          var amountNeeded = request.amountNQT/100000000;
  					var targetCurrency = $("#targetCurrency").val();
  					if (amountNeeded >= baseAmount){
  					$("#swapModal").modal();
           $("#modalCurrencyAdd").html(baseCurrency);
  					$("#modalRate").text(rate);
- 					$("#modalRateDisplay").html(rate);
- 					$("#modalBaseAmount").html(baseAmount);
- 					$("#modalBaseAmountDisplay").html(baseAmount);
+ 					$("#modalRateDisplay").text(rate);
+ 					$("#modalBaseAmount").text(baseAmount);
+ 					$("#modalBaseAmountDisplay").text(baseAmountDisplay);
  					$("#modalTargetAmount").html(amountNeeded);
  					} else {
- 						$("#modalError").html("Unable to fill order amount");
+ 						$("#modalErrorMessage").text("Unable to fill order amount");
  					}
  				} else {
- 					$("#modalError").html(error);
+ 					$("#modalErrorMessage").text(error);
  				}})})
  		} 
 </script>
@@ -262,12 +263,12 @@
  				$.getJSON(Constants.apiUrl, {
  					requestType: "getAvailableToSell",
  					currency: currencyCode,
- 					units: $("#baseAmount").val()
+ 					units: $("#modalBaseAmountDisplay").text()*100
  				}, 
  				function(request) {
  						var rate = request.rateNQT;
  						var secretPhrase = $("#modalSecretPhrase").val();
- 						var units = $("#baseAmount").val() * 100;
+ 						var units = $("#modalBaseAmountDisplay").text()*100;
  						$.post(Constants.apiUrl, {
  							requestType: "currencySell",
  							currency: currencyCode,
@@ -284,7 +285,7 @@
  								var txId = tx.transaction;
  								$("#txMessage").html("<h4><b>Swap Successful!<br/><br/>TX ID: " + txId + "</b></h4>");
  							} else {
- 								$("#txMessage").html(error);
+ 								$("#txMessage").text(error);
  	}})})})}
 </script>
 </body>

@@ -26,6 +26,7 @@
 		.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
 			border-top: 1px solid #444;
 		}
+
 	</style>
 </head>
 <body class="full-width" onload="price(); buyOffers(); sellOffers(); setAccountNumber();">
@@ -308,7 +309,7 @@
 	<script>
 		var myVar = setInterval(function() {
     price()
-  	}, 12000);
+  	}, 6000);
 		function price() {
 	$.getJSON(Constants.apiUrl, {
       requestType: "getExchanges",
@@ -316,7 +317,7 @@
     }, 
       function(request) {
       	var rate = request.exchanges[0].rateNQT/1000000;
-      	document.getElementById("usdx").innerText = rate.toFixed(8);
+      	document.getElementById("usdx").innerText = rate.toFixed(2);
       })}
 	</script>
 	<script>
@@ -381,7 +382,7 @@
 	<script>
 		var myVar = setInterval(function() {
     sellOffers()
-  	}, 12000);
+  	}, 6000);
   	function sellOffers() {
 	$.getJSON(Constants.apiUrl, {
       requestType: "getSellOffers",
@@ -399,7 +400,7 @@
       rows += '<tr>';
       rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + expiry.toLocaleString() + '</a></td>';
       rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferLimit.toLocaleString() + '</a></td>';
-      rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferRate.toFixed(8) + ' BLX</a></td>';
+      rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="'+buyRate+'" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferRate.toFixed(2) + ' BLX</a></td>';
       rows += '</tr>';
     }
     $("#buy_table_body").html(rows);
@@ -408,7 +409,7 @@
 <script>
 	var myVar = setInterval(function() {
     buyOffers()
-  	}, 12000);
+  	}, 6000);
 	function buyOffers() {
 	$.getJSON(Constants.apiUrl, {
       requestType: "getBuyOffers",
@@ -426,7 +427,7 @@
       rows += '<tr>';
       rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + expiry.toLocaleString() + '</a></td>';
       rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferLimit.toLocaleString() + '</a></td>';
-      rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferRate.toFixed(8) + ' BLX</a></td>';
+      rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="'+sellRate+'" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferRate.toFixed(2) + ' BLX</a></td>';
       rows += '</tr>';
     }
     $("#sell_table_body").html(rows);
@@ -442,7 +443,7 @@
   		var rate = $(event.relatedTarget).data('val');
   		$("#buyModalRateNQT").text(rate);
   		var displayRate = rate/1000000;
-  		var displayRate1 = displayRate.toFixed(8);
+  		var displayRate1 = displayRate.toFixed(2);
   		$("#modalBuyRateDisplay").html(displayRate1);
 	})}
 </script>
@@ -456,7 +457,7 @@
   		var rate = $(event.relatedTarget).data('val');
   		$("#sellModalRateNQT").text(rate);
   		var displayRate = rate/1000000;
-  		var displayRate1 = displayRate.toFixed(8);
+  		var displayRate1 = displayRate.toFixed(2);
   		$("#modalSellRateDisplay").html(displayRate1);
 	})}
 </script>
