@@ -54,8 +54,6 @@
           replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
           replace_USDXAccountBalance += '<p>0 USDX</p>';
           replace_USDXAccountBalance += '</div>';
-          replace_USDXAccountBalance += '</br>';
-          replace_USDXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
           document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
         } else {
           var USDXAccountBalance = coinquery.units;
@@ -65,11 +63,60 @@
           replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
           replace_USDXAccountBalance += '<p>' + convertedUSDXAccountBalance.toLocaleString() + ' USDX</p>';
           replace_USDXAccountBalance += '</div>';
-          replace_USDXAccountBalance += '</br>';
-          replace_USDXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
           document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
         }
       }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.AUDXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_AUDXAccountBalance = '';
+          replace_AUDXAccountBalance += '<div class="media-body">';
+          replace_AUDXAccountBalance += '<a class="p-head">AUDX Balance</a>';
+          replace_AUDXAccountBalance += '<p>0 AUDX</p>';
+          replace_AUDXAccountBalance += '</div>';
+          document.getElementById("AUDXAccountBalance").innerHTML = replace_AUDXAccountBalance;
+        } else {
+          var AUDXAccountBalance = coinquery.units;
+          var convertedAUDXAccountBalance = AUDXAccountBalance / 100;
+          var replace_AUDXAccountBalance = '';
+          replace_AUDXAccountBalance += '<div class="media-body">';
+          replace_AUDXAccountBalance += '<a class="p-head">AUDX Balance</a>';
+          replace_AUDXAccountBalance += '<p>' + convertedAUDXAccountBalance.toLocaleString() + ' AUDX</p>';
+          replace_AUDXAccountBalance += '</div>';
+          document.getElementById("AUDXAccountBalance").innerHTML = replace_AUDXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.CADXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_CADXAccountBalance = '';
+          replace_CADXAccountBalance += '<div class="media-body">';
+          replace_CADXAccountBalance += '<a class="p-head">CADX Balance</a>';
+          replace_CADXAccountBalance += '<p>0 CADX</p>';
+          replace_CADXAccountBalance += '</div>';
+          replace_CADXAccountBalance += '</br>';
+          replace_CADXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("CADXAccountBalance").innerHTML = replace_CADXAccountBalance;
+        } else {
+          var CADXAccountBalance = coinquery.units;
+          var convertedCADXAccountBalance = CADXAccountBalance / 100;
+          var replace_CADXAccountBalance = '';
+          replace_CADXAccountBalance += '<div class="media-body">';
+          replace_CADXAccountBalance += '<a class="p-head">CADX Balance</a>';
+          replace_CADXAccountBalance += '<p>' + convertedCADXAccountBalance.toLocaleString() + ' CADX</p>';
+          replace_CADXAccountBalance += '</div>';
+          replace_CADXAccountBalance += '</br>';
+          replace_CADXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("CADXAccountBalance").innerHTML = replace_CADXAccountBalance;
+        }
+      }, "json");
+
     }
   };
   </script>
@@ -107,6 +154,8 @@
                   </div>
                 </div>
                 <div id="USDXAccountBalance"> </div>
+                <div id="AUDXAccountBalance"> </div>
+                <div id="CADXAccountBalance"> </div>
               </div>
             </section>
           </div>

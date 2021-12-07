@@ -287,7 +287,7 @@
 			currency: Constants.USDXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("usdx").innerText = rate.toFixed(2);
+			document.getElementById("usdx").innerText = rate.toFixed(3);
 		})
 	}
 	</script>
@@ -365,7 +365,7 @@
 				rows += '<tr>';
 				rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="' + buyRate + '" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + expiry.toLocaleString() + '</a></td>';
 				rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="' + buyRate + '" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferLimit.toFixed(2) + '</a></td>';
-				rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="' + buyRate + '" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferRate.toFixed(2) + ' BLX</a></td>';
+				rows += '<td><a style="color:#3fcd59;" href="#buyModal" data-val="' + buyRate + '" data-toggle="modal" data-target="#buyModal" onclick="previewBuyModal();">' + buyOfferRate.toFixed(3) + ' BLX</a></td>';
 				rows += '</tr>';
 			}
 			$("#buy_table_body").html(rows);
@@ -393,7 +393,7 @@
 				rows += '<tr>';
 				rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="' + sellRate + '" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + expiry.toLocaleString() + '</a></td>';
 				rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="' + sellRate + '" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferLimit.toFixed(2) + '</a></td>';
-				rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="' + sellRate + '" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferRate.toFixed(2) + ' BLX</a></td>';
+				rows += '<td><a style="color:#ff363c;" href="#sellModal" data-val="' + sellRate + '" data-toggle="modal" data-target="#sellModal" onclick="previewSellModal();">' + sellOfferRate.toFixed(3) + ' BLX</a></td>';
 				rows += '</tr>';
 			}
 			$("#sell_table_body").html(rows);
@@ -410,7 +410,7 @@
 			var rate = $(event.relatedTarget).data('val');
 			$("#buyModalRateNQT").text(rate);
 			var displayRateBuy = rate / 1000000;
-			var displayRateBuy1 = displayRateBuy.toFixed(2);
+			var displayRateBuy1 = displayRateBuy.toFixed(3);
 			$("#modalBuyRateDisplay").html(displayRateBuy1);
 		})
 	}
@@ -425,7 +425,7 @@
 			var rate = $(event.relatedTarget).data('val');
 			$("#sellModalRateNQT").text(rate);
 			var displayRateSell = rate / 1000000;
-			var displayRateSell1 = displayRateSell.toFixed(2);
+			var displayRateSell1 = displayRateSell.toFixed(3);
 			$("#modalSellRateDisplay").html(displayRateSell1);
 		})
 	}
