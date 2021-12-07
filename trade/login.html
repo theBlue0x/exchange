@@ -100,8 +100,6 @@
           replace_CADXAccountBalance += '<a class="p-head">CADX Balance</a>';
           replace_CADXAccountBalance += '<p>0 CADX</p>';
           replace_CADXAccountBalance += '</div>';
-          replace_CADXAccountBalance += '</br>';
-          replace_CADXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
           document.getElementById("CADXAccountBalance").innerHTML = replace_CADXAccountBalance;
         } else {
           var CADXAccountBalance = coinquery.units;
@@ -111,9 +109,34 @@
           replace_CADXAccountBalance += '<a class="p-head">CADX Balance</a>';
           replace_CADXAccountBalance += '<p>' + convertedCADXAccountBalance.toLocaleString() + ' CADX</p>';
           replace_CADXAccountBalance += '</div>';
-          replace_CADXAccountBalance += '</br>';
-          replace_CADXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
           document.getElementById("CADXAccountBalance").innerHTML = replace_CADXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.CHFXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_CHFXAccountBalance = '';
+          replace_CHFXAccountBalance += '<div class="media-body">';
+          replace_CHFXAccountBalance += '<a class="p-head">CHFX Balance</a>';
+          replace_CHFXAccountBalance += '<p>0 CHFX</p>';
+          replace_CHFXAccountBalance += '</div>';
+          replace_CHFXAccountBalance += '</br>';
+          replace_CHFXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("CHFXAccountBalance").innerHTML = replace_CHFXAccountBalance;
+        } else {
+          var CHFXAccountBalance = coinquery.units;
+          var convertedCHFXAccountBalance = CHFXAccountBalance / 100;
+          var replace_CHFXAccountBalance = '';
+          replace_CHFXAccountBalance += '<div class="media-body">';
+          replace_CHFXAccountBalance += '<a class="p-head">CHFX Balance</a>';
+          replace_CHFXAccountBalance += '<p>' + convertedCHFXAccountBalance.toLocaleString() + ' CHFX</p>';
+          replace_CHFXAccountBalance += '</div>';
+          replace_CHFXAccountBalance += '</br>';
+          replace_CHFXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("CHFXAccountBalance").innerHTML = replace_CHFXAccountBalance;
         }
       }, "json");
 
@@ -156,6 +179,7 @@
                 <div id="USDXAccountBalance"> </div>
                 <div id="AUDXAccountBalance"> </div>
                 <div id="CADXAccountBalance"> </div>
+                <div id="CHFXAccountBalance"> </div>
               </div>
             </section>
           </div>

@@ -21,7 +21,7 @@
 	</style>
 </head>
 
-<body class="full-width" onload="priceUSDX(); priceAUDX(); priceCADX(); setAccountNumber();">
+<body class="full-width" onload="priceUSDX(); priceAUDX(); priceCADX(); priceCHFX(); setAccountNumber();">
 	<section id="container">
 		<script type="text/javascript" src="js/menu.js"></script>
 		<section id="main-content">
@@ -83,8 +83,8 @@
 									<p>BLX</p>
 								</div>
 								<div style="float:right">
-									<p>24 HR: <span id="usdxt">00.00%</span></p>
-									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+									<p>24 HR: <span id="chfxt">00.00%</span></p>
+									<p>7 DAY: <span id="chfxs">00.00%</span></p>
 								</div>
 							</div>
 						</div>
@@ -221,14 +221,6 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/constants.js"></script>
 	<script src="js/freemarket_scripts.js"></script>
-	<script>
-		var myVar = setInterval(function() {
-		priceUSDX();
-		priceAUDX();
-		priceCADX();
-		console.log('Refreshed');
-	}, 6000);
-	</script>
 	<script>
 	function priceUSDX() {
 		$.getJSON(Constants.apiUrl, {
@@ -410,6 +402,68 @@
 					var cadxs = '';
 					cadxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("cadxs").innerHTML = cadxs;
+				}
+			})
+		})
+	}
+	</script>
+	<script>
+	function priceCHFX() {
+		$.getJSON(Constants.apiUrl, {
+			requestType: "getExchanges",
+			currency: Constants.CHFXId
+		}, function(request) {
+			var rate = request.exchanges[0].rateNQT / 1000000;
+			document.getElementById("chfx").innerHTML = rate.toFixed(3);
+			var genesisDate = new Date("05/07/2021 12:34:00");
+			var genesisEpoch = genesisDate.getTime() / 1000;
+			var today = Math.round(Date.now() / 1000);
+			var dayAgo = today - 86440;
+			var weekAgo = today - 604800;
+			var dayAgoStamp = dayAgo - genesisEpoch;
+			var weekAgoStamp = weekAgo - genesisEpoch;
+			$.getJSON(Constants.apiUrl, {
+				requestType: "getExchanges",
+				currency: Constants.CHFXId,
+				timestamp: dayAgoStamp
+			}, function(dayPrice) {
+				if(dayPrice.exchanges.length != 0) {
+					var i = dayPrice.exchanges.length - 1;
+					var dayRate = dayPrice.exchanges[i].rateNQT / 1000000;
+					var day = ((rate - dayRate) / dayRate) * 100;
+					var dayPercent = day.toFixed(2);
+					if(dayPercent >= 0.00) {
+						var chfxt = '';
+						chfxt += '<span style="color:#3fcd59">' + dayPercent + '%' + '</span>';
+						document.getElementById("chfxt").innerHTML = chfxt;
+					} else {
+						var chfxt = '';
+						chfxt += '<span style="color:#ff363c">' + dayPercent + '%' + '</span>';
+						document.getElementById("chfxt").innerHTML = chfxt;
+					}
+				} else {
+					var chfxt = '';
+					chfxt += '<span style="color:#3fcd59">0.00%</span>';
+					document.getElementById("chfxt").innerHTML = chfxt;
+				}
+			})
+			$.getJSON(Constants.apiUrl, {
+				requestType: "getExchanges",
+				currency: Constants.CHFXId,
+				timestamp: weekAgoStamp
+			}, function(weekPrice) {
+				var i = weekPrice.exchanges.length - 1;
+				var weekRate = weekPrice.exchanges[i].rateNQT / 1000000;
+				var week = ((rate - weekRate) / weekRate) * 100;
+				var weekPercent = week.toFixed(2);
+				if(weekPercent >= 0.00) {
+					var chfxs = '';
+					chfxs += '<span style="color:#3fcd59">' + weekPercent + '%' + '</span>';
+					document.getElementById("chfxs").innerHTML = chfxs;
+				} else {
+					var chfxs = '';
+					chfxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
+					document.getElementById("chfxs").innerHTML = chfxs;
 				}
 			})
 		})

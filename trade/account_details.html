@@ -91,6 +91,19 @@
         document.getElementById("CADXAccountBalance").innerHTML = convertedCADXAccountBalance.toLocaleString() + " CADX";
       }
     }, "json");
+    $.post(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber,
+      currency: Constants.CHFXId
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("CHFXAccountBalance").innerHTML = "0 CHFX";
+      } else {
+        var CHFXAccountBalance = coinquery.units;
+        var convertedCHFXAccountBalance = CHFXAccountBalance / 100;
+        document.getElementById("CHFXAccountBalance").innerHTML = convertedCHFXAccountBalance.toLocaleString() + " CHFX";
+      }
+    }, "json");
   };
   </script>
 </head>
@@ -115,6 +128,8 @@
                   <p><span id="AUDXAccountBalance">Calculating AUDX Balance...</span></p>
                   <a class="p-head"><span >CADX Balance</span></a>
                   <p><span id="CADXAccountBalance">Calculating CADX Balance...</span></p>
+                  <a class="p-head"><span >CHFX Balance</span></a>
+                  <p><span id="CHFXAccountBalance">Calculating CHFX Balance...</span></p>
                 </div>
                 <br/>
                 <div id="logoutButtonSection">

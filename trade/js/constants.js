@@ -6,6 +6,8 @@ var Constants = (function(Constants, $, undefined) {
 
   Constants.CADXId = '4167983987313144762';
 
+  Constants.CHFXId = '3006794435856739569';
+
   Constants.apiUrl = 'https://wallet.blue0x.com/nxt';
 
   return Constants;
