@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +12,17 @@
   <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet" />
-<script>
-function checkLogin() {
-  var loginStatus = sessionStorage.getItem("loginStatus");
-  if (loginStatus == 'notloggedin') {
-    window.location.href = 'login.html';
-  }};
-</script>
-<script>
+  <script>
+  function checkLogin() {
+    var loginStatus = sessionStorage.getItem("loginStatus");
+    if(loginStatus == 'notloggedin') {
+      window.location.href = 'login.html';
+    }
+  };
+  </script>
+  <script>
   function logoutFromChangeAccountPage() {
-    if (typeof(Storage) != "undefined") {
+    if(typeof(Storage) != "undefined") {
       document.getElementById("logoutButtonSection").innerHTML = "<button type=\"button\" id=\"logoutButton\" class=\"btn btn-danger\"><i class=\"fa fa-refresh fa-spin\"></i> &nbsp;Processing...</button>";
       sessionStorage.removeItem("accountNumber");
       sessionStorage.removeItem("accountRS");
@@ -34,9 +36,10 @@ function checkLogin() {
       window.location.assign("login.html");
     } else {
       document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage.";
-    }};
-</script>
-<script>
+    }
+  };
+  </script>
+  <script>
   function displayAccountInfo() {
     var currentAccountNumber = sessionStorage.getItem("numericalAccountNumber");
     var currentRSAccountNumber = sessionStorage.getItem("accountRS");
@@ -44,29 +47,28 @@ function checkLogin() {
       requestType: 'getAccount',
       account: currentRSAccountNumber,
       includeEffectiveBalance: "true"
-    },
-    function(result) {
-    var balance = result.balanceNQT / 100000000;
-    document.getElementById("RSaccount_number").innerHTML = currentRSAccountNumber;
-    document.getElementById("currentAccountBalance").innerHTML = balance.toLocaleString();
-}, "json");
+    }, function(result) {
+      var balance = result.balanceNQT / 100000000;
+      document.getElementById("RSaccount_number").innerHTML = currentRSAccountNumber;
+      document.getElementById("currentAccountBalance").innerHTML = balance.toLocaleString();
+    }, "json");
     $.post(Constants.apiUrl, {
       requestType: 'getAccountCurrencies',
       account: currentRSAccountNumber,
       currency: Constants.USDXId
-    },
-    function(coinquery) {
-      if (coinquery == '{}') {
-          document.getElementById("USDXAccountBalance").innerHTML = "0 USDX";
-        } else {
-          var USDXAccountBalance = coinquery.units;
-          var convertedUSDXAccountBalance = USDXAccountBalance / 100;
-          document.getElementById("USDXAccountBalance").innerHTML = convertedUSDXAccountBalance.toLocaleString() + " USDX";
-        }
-      }, "json");
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("USDXAccountBalance").innerHTML = "0 USDX";
+      } else {
+        var USDXAccountBalance = coinquery.units;
+        var convertedUSDXAccountBalance = USDXAccountBalance / 100;
+        document.getElementById("USDXAccountBalance").innerHTML = convertedUSDXAccountBalance.toLocaleString() + " USDX";
+      }
+    }, "json");
   };
-</script>
+  </script>
 </head>
+
 <body class="full-width" onload="checkLogin(); displayAccountInfo(); setAccountNumber();">
   <section id="container">
     <script type="text/javascript" src="js/menu.js"></script>
@@ -75,16 +77,11 @@ function checkLogin() {
         <div class="row">
           <div class="col-lg-12">
             <section class="panel" style="color:#c1c1c1">
-              <header class="panel-heading">
-                <b><span data-i18n="header_current_account_info">Current Account Information</span></b>
-              </header>
+              <header class="panel-heading"> <b><span data-i18n="header_current_account_info">Current Account Information</span></b> </header>
               <div class="panel-body">
-                <div class="media-body">
-                  <a class="p-head">Account ID</a>
-                  <p><span id="RSaccount_number">Account ID</span></p>
-                  <a class="p-head"><span >BLX Balance</span></a>
-                  <p><span id="currentAccountBalance">BLX Account Balance</span> BLX</p>
-                  <a class="p-head"><span >USDX Balance</span></a>
+                <div class="media-body"> <a class="p-head">Account ID</a>
+                  <p><span id="RSaccount_number">Account ID</span></p> <a class="p-head"><span >BLX Balance</span></a>
+                  <p><span id="currentAccountBalance">BLX Account Balance</span> BLX</p> <a class="p-head"><span >USDX Balance</span></a>
                   <p><span id="USDXAccountBalance">Calculating USDX Balance...</span></p>
                 </div>
                 <br/>
@@ -94,7 +91,7 @@ function checkLogin() {
               </div>
             </section>
           </div>
-        </section>
+      </section>
       </div>
     </section>
   </section>
@@ -103,4 +100,5 @@ function checkLogin() {
   <script src="js/constants.js"></script>
   <script src="js/freemarket_scripts.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,72 +15,73 @@
   <script>
   function login() {
     var Account = document.getElementById('user_entered_account_number').value;
-    if (!Account) { 
+    if(!Account) {
       document.getElementById("user_entered_account_numberErrorMessage").innerHTML = "<p>Account Number Required</p>";
     } else {
-      var currentRSAccountNumber =$('#user_entered_account_number').val();
+      var currentRSAccountNumber = $('#user_entered_account_number').val();
       $.post(Constants.apiUrl, {
         requestType: 'getAccount',
         account: $('#user_entered_account_number').val(),
         includeEffectiveBalance: "true"
-      },
-      function(result) {
-          if (result.errorDescription == 'Unknown account') { 
-            document.getElementById("user_entered_account_numberErrorMessage").innerHTML = "<p class=\"validation_message\">New or invalid BLX account.  New BLX accounts must first make an outgoing transaction from the Blue0x wallet.</p>";
-            } else {
-            var balance = result.balanceNQT / 100000000;
-            sessionStorage.setItem("accountRS", result.accountRS);
-            sessionStorage.setItem("accountBalance", balance);
-            var replace_loginResult = '';
-            replace_loginResult += '<div class="media-body">';
-            replace_loginResult += '<p>You have logged in with the following account:</p>';
-            replace_loginResult += '<a class="p-head">Account ID</a>';
-            replace_loginResult += '<p>' + result.accountRS + '</p>';
-            replace_loginResult += '</div>';
-            replace_loginResult += '<div class="media-body">';
-            replace_loginResult += '<a class="p-head">BLX Balance</a>';
-            replace_loginResult += '<p>' + balance.toLocaleString() + ' BLX </p>';
-            replace_loginResult += '</div>';
-            document.getElementById("loginResult").innerHTML = replace_loginResult;
-          }
-        }, "json");
+      }, function(result) {
+        if(result.errorDescription == 'Unknown account') {
+          document.getElementById("user_entered_account_numberErrorMessage").innerHTML = "<p class=\"validation_message\">New or invalid BLX account.  New BLX accounts must first make an outgoing transaction from the Blue0x wallet.</p>";
+        } else {
+          var balance = result.balanceNQT / 100000000;
+          sessionStorage.setItem("accountRS", result.accountRS);
+          sessionStorage.setItem("accountBalance", balance);
+          var replace_loginResult = '';
+          replace_loginResult += '<div class="media-body">';
+          replace_loginResult += '<p>You have logged in with the following account:</p>';
+          replace_loginResult += '<a class="p-head">Account ID</a>';
+          replace_loginResult += '<p>' + result.accountRS + '</p>';
+          replace_loginResult += '</div>';
+          replace_loginResult += '<div class="media-body">';
+          replace_loginResult += '<a class="p-head">BLX Balance</a>';
+          replace_loginResult += '<p>' + balance.toLocaleString() + ' BLX </p>';
+          replace_loginResult += '</div>';
+          document.getElementById("loginResult").innerHTML = replace_loginResult;
+        }
+      }, "json");
       $.post(Constants.apiUrl, {
         requestType: 'getAccountCurrencies',
         account: currentRSAccountNumber,
         currency: Constants.USDXId
-      },
-      function(coinquery) {
-        if (coinquery == '{}') {
-            var replace_USDXAccountBalance = '';
-            replace_USDXAccountBalance += '<div class="media-body">';
-            replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
-            replace_USDXAccountBalance += '<p>0 USDX</p>';
-            replace_USDXAccountBalance += '</div>';
-            replace_USDXAccountBalance += '</br>';
-            replace_USDXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
-            document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
-          } else {
-            var USDXAccountBalance = coinquery.units;
-            var convertedUSDXAccountBalance = USDXAccountBalance / 100;
-            var replace_USDXAccountBalance = '';
-            replace_USDXAccountBalance += '<div class="media-body">';
-            replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
-            replace_USDXAccountBalance += '<p>' + convertedUSDXAccountBalance.toLocaleString() + ' USDX</p>';
-            replace_USDXAccountBalance += '</div>';
-            replace_USDXAccountBalance += '</br>';
-            replace_USDXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
-            document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
-          }
-        }, "json");
-    }};
-</script>
-<script>
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_USDXAccountBalance = '';
+          replace_USDXAccountBalance += '<div class="media-body">';
+          replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
+          replace_USDXAccountBalance += '<p>0 USDX</p>';
+          replace_USDXAccountBalance += '</div>';
+          replace_USDXAccountBalance += '</br>';
+          replace_USDXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
+        } else {
+          var USDXAccountBalance = coinquery.units;
+          var convertedUSDXAccountBalance = USDXAccountBalance / 100;
+          var replace_USDXAccountBalance = '';
+          replace_USDXAccountBalance += '<div class="media-body">';
+          replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
+          replace_USDXAccountBalance += '<p>' + convertedUSDXAccountBalance.toLocaleString() + ' USDX</p>';
+          replace_USDXAccountBalance += '</div>';
+          replace_USDXAccountBalance += '</br>';
+          replace_USDXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
+        }
+      }, "json");
+    }
+  };
+  </script>
+  <script>
   function loadAccountInfo() {
-    if (sessionStorage.getItem("loginStatus") == "loggedin") {
+    if(sessionStorage.getItem("loginStatus") == "loggedin") {
       window.location.href = "account_details.html";
-    }};
+    }
+  };
   </script>
 </head>
+
 <body class="full-width" onload="loadAccountInfo();">
   <section id="container">
     <script type="text/javascript" src="js/menu.js"></script>
@@ -88,16 +90,14 @@
         <div class="row">
           <div class="col-lg-12">
             <section class="panel" style="color:#c1c1c1;">
-              <header class="panel-heading">
-                <span>Log In</span>
-              </header>
+              <header class="panel-heading"> <span>Log In</span> </header>
               <div class="panel-body">
                 <div id="loginResult">
                   <p>Enter your BLX account number below to display your account balances.</p>
                   <div class="form-group">
-                    <label for="user_entered_account_number">BLX Account Number:</span></label>
-                    <div class="iconic-input">
-                      <i class="fa fa-bars"></i>
+                    <label for="user_entered_account_number">BLX Account Number:</span>
+                    </label>
+                    <div class="iconic-input"> <i class="fa fa-bars"></i>
                       <input type="text" class="form-control" placeholder="required" id="user_entered_account_number">
                       <div id="user_entered_account_numberErrorMessage"></div>
                     </div>
@@ -106,8 +106,7 @@
                     <button type="button" id="loginButton" class="btn btn-info" onclick="login();">Login</button>
                   </div>
                 </div>
-                <div id="USDXAccountBalance">
-                </div>
+                <div id="USDXAccountBalance"> </div>
               </div>
             </section>
           </div>
@@ -121,4 +120,5 @@
   <script src="js/constants.js"></script>
   <script src="js/freemarket_scripts.js"></script>
 </body>
+
 </html>

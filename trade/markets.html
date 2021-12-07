@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,319 +9,412 @@
 	<title>Blue0x | EXCHANGE</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-reset.css" rel="stylesheet">
-	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">  
+	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/style-responsive.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css" integrity="sha512-UwbBNAFoECXUPeDhlKR3zzWU3j8ddKIQQsDOsKhXQGdiB5i3IHEXr9kXx82+gaHigbNKbTDp3VY/G6gZqva6ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet">
 	<style>
-		h4 {
-		margin-top:3px;
+	h4 {
+		margin-top: 3px;
 		color: #d1d1d1;
-		}
+	}
 	</style>
 </head>
-<body class="full-width" onload="priceUSDX(); setAccountNumber();">
-	<section id="container"> 
+
+<body class="full-width" onload="priceUSDX(); priceAUDX(); priceCADX(); setAccountNumber();">
+	<section id="container">
 		<script type="text/javascript" src="js/menu.js"></script>
 		<section id="main-content">
 			<section class="wrapper">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-us"></span>
-								<span><a href="usdxMarket.html">&nbsp;USDX - United States Dollar</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-us"></span> <span><a href="usdxMarket.html">&nbsp;USDX - United States Dollar</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="usdx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="usdx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-au"></span>
-								<span><a href="audxMarket.html">&nbsp;AUDX - Australian Dollar</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-au"></span> <span><a href="audxMarket.html">&nbsp;AUDX - Australian Dollar</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="audx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="audx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="audxt">00.00%</span></p>
+									<p>7 DAY: <span id="audxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-ca"></span>
-								<span><a href="cadxMarket.html">&nbsp;CADX - Canadian Dollar</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-ca"></span> <span><a href="cadxMarket.html">&nbsp;CADX - Canadian Dollar</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="cadx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="cadx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="cadxt">00.00%</span></p>
+									<p>7 DAY: <span id="cadxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-ch"></span>
-								<span><a href="chfxMarket.html">&nbsp;CHFX - Swiss Franc</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-ch"></span> <span><a href="chfxMarket.html">&nbsp;CHFX - Swiss Franc</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="chfx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="chfx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-cn"></span>
-								<span><a href="cnyxMarket.html">&nbsp;CNYX - Chinese Yuan</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-cn"></span> <span><a href="cnyxMarket.html">&nbsp;CNYX - Chinese Yuan</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="cnyx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="cnyx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-eu"></span>
-								<span><a href="eurxMarket.html">&nbsp;EURX - Euro</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-eu"></span> <span><a href="eurxMarket.html">&nbsp;EURX - Euro</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="eurx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="eurx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-gb"></span>
-								<span><a href="gbpxMarket.html">&nbsp;GBPX - British Pound Sterling</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-gb"></span> <span><a href="gbpxMarket.html">&nbsp;GBPX - British Pound Sterling</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="gbpx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="gbpx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-iq"></span>
-								<span><a href="iqdxMarket.html">&nbsp;IQDX - Iraqi Dinar</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-iq"></span> <span><a href="iqdxMarket.html">&nbsp;IQDX - Iraqi Dinar</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="iqdx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="iqdx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-ir"></span>
-								<span><a href="irrxMarket.html">&nbsp;IRRX - Iranian Rial</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-ir"></span> <span><a href="irrxMarket.html">&nbsp;IRRX - Iranian Rial</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="irrx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="irrx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-jp"></span>
-								<span><a href="jpyxMarket.html">&nbsp;JPYX - Japanese Yen</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-jp"></span> <span><a href="jpyxMarket.html">&nbsp;JPYX - Japanese Yen</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="jpyx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="jpyx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-nz"></span>
-								<span><a href="nzdxMarket.html">&nbsp;NZDX - New Zealand Dollar</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-nz"></span> <span><a href="nzdxMarket.html">&nbsp;NZDX - New Zealand Dollar</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="nzdx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="nzdx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="panel">
-							<header class="panel-heading">
-								<span class="flag-icon flag-icon-ru"></span>
-								<span><a href="rubxMarket.html">&nbsp;RUBX - Russian Ruble</a></span>
-							</header>
+							<header class="panel-heading"> <span class="flag-icon flag-icon-ru"></span> <span><a href="rubxMarket.html">&nbsp;RUBX - Russian Ruble</a></span> </header>
 							<div class="panel-body">
 								<div style="float:left">
-								<h4 id="rubx">0.00</h4>
-								<p>BLX</p>
+									<h4 id="rubx">0.00</h4>
+									<p>BLX</p>
 								</div>
 								<div style="float:right">
-								<p>24 HR: <span id="usdxt">00.00%</span></p>
-								<p>7 DAY: <span id="usdxs">00.00%</span></p>
-							  </div>
-							</div>				
+									<p>24 HR: <span id="usdxt">00.00%</span></p>
+									<p>7 DAY: <span id="usdxs">00.00%</span></p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
+		</section>
 	</section>
-</section>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/constants.js"></script>
-<script src="js/freemarket_scripts.js"></script>
-<script>
-	var myVar = setInterval(function() {
-    priceUSDX()
-  	}, 60000);
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/constants.js"></script>
+	<script src="js/freemarket_scripts.js"></script>
+	<script>
+		var myVar = setInterval(function() {
+		priceUSDX();
+		priceAUDX();
+		priceCADX();
+		console.log('Refreshed');
+	}, 6000);
+	</script>
+	<script>
 	function priceUSDX() {
-	$.getJSON(Constants.apiUrl, {
-		requestType: "getExchanges",
-		currency: Constants.USDXId
-	}, 
-	function(request) {
-		var rate = request.exchanges[0].rateNQT/1000000;
-		document.getElementById("usdx").innerHTML = rate.toFixed(2);
-		var genesisDate = new Date("05/07/2021 12:34:00");
-		var genesisEpoch = genesisDate.getTime()/1000;
-		var today = Math.round(Date.now()/1000);
-		var dayAgo = today - 86440;
-		var weekAgo = today - 604800;
-		var dayAgoStamp = dayAgo - genesisEpoch;
-		var weekAgoStamp = weekAgo - genesisEpoch;
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
-			currency: Constants.USDXId,
-			timestamp: dayAgoStamp
-		},
-		function (dayPrice) {
-			if (dayPrice.exchanges.length != 0) {
-				var i = dayPrice.exchanges.length - 1;
-				var dayRate = dayPrice.exchanges[i].rateNQT/1000000;
-				var day = ((rate - dayRate) / dayRate) * 100;
-				var dayPercent = day.toFixed(2);
-				if (dayPercent >= 0.00){
-					var usdxt = '';
-					usdxt += '<span style="color:#3fcd59">' + dayPercent + '%' + '</span>';
-					document.getElementById("usdxt").innerHTML = usdxt;
+			currency: Constants.USDXId
+		}, function(request) {
+			var rate = request.exchanges[0].rateNQT / 1000000;
+			document.getElementById("usdx").innerHTML = rate.toFixed(2);
+			var genesisDate = new Date("05/07/2021 12:34:00");
+			var genesisEpoch = genesisDate.getTime() / 1000;
+			var today = Math.round(Date.now() / 1000);
+			var dayAgo = today - 86440;
+			var weekAgo = today - 604800;
+			var dayAgoStamp = dayAgo - genesisEpoch;
+			var weekAgoStamp = weekAgo - genesisEpoch;
+			$.getJSON(Constants.apiUrl, {
+				requestType: "getExchanges",
+				currency: Constants.USDXId,
+				timestamp: dayAgoStamp
+			}, function(dayPrice) {
+				if(dayPrice.exchanges.length != 0) {
+					var i = dayPrice.exchanges.length - 1;
+					var dayRate = dayPrice.exchanges[i].rateNQT / 1000000;
+					var day = ((rate - dayRate) / dayRate) * 100;
+					var dayPercent = day.toFixed(2);
+					if(dayPercent >= 0.00) {
+						var usdxt = '';
+						usdxt += '<span style="color:#3fcd59">' + dayPercent + '%' + '</span>';
+						document.getElementById("usdxt").innerHTML = usdxt;
+					} else {
+						var usdxt = '';
+						usdxt += '<span style="color:#ff363c">' + dayPercent + '%' + '</span>';
+						document.getElementById("usdxt").innerHTML = usdxt;
+					}
 				} else {
 					var usdxt = '';
-					usdxt += '<span style="color:#ff363c">' + dayPercent + '%' + '</span>';
-					document.getElementById("usdxt").innerHTML = usdxt;
-				}
-			} else {
-				var usdxt = '';
 					usdxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("usdxt").innerHTML = usdxt;
-			}})
+				}
+			})
+			$.getJSON(Constants.apiUrl, {
+				requestType: "getExchanges",
+				currency: Constants.USDXId,
+				timestamp: weekAgoStamp
+			}, function(weekPrice) {
+				var i = weekPrice.exchanges.length - 1;
+				var weekRate = weekPrice.exchanges[i].rateNQT / 1000000;
+				var week = ((rate - weekRate) / weekRate) * 100;
+				var weekPercent = week.toFixed(2);
+				if(weekPercent >= 0.00) {
+					var usdxs = '';
+					usdxs += '<span style="color:#3fcd59">' + weekPercent + '%' + '</span>';
+					document.getElementById("usdxs").innerHTML = usdxs;
+				} else {
+					var usdxs = '';
+					usdxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
+					document.getElementById("usdxs").innerHTML = usdxs;
+				}
+			})
+		})
+	}
+	</script>
+	<script>
+	function priceAUDX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
-			currency: Constants.USDXId,
-			timestamp: weekAgoStamp
-		},
-		function (weekPrice) {
-			var i = weekPrice.exchanges.length - 1;
-			var weekRate = weekPrice.exchanges[i].rateNQT/1000000;
-			var week = ((rate - weekRate) / weekRate) * 100;
-			var weekPercent = week.toFixed(2);
-			if (weekPercent >= 0.00){
-				var usdxs = '';
-				usdxs += '<span style="color:#3fcd59">' + weekPercent + '%' + '</span>';
-				document.getElementById("usdxs").innerHTML = usdxs;
-			} else {
-				var usdxs = '';
-				usdxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
-				document.getElementById("usdxs").innerHTML = usdxs;
-			}})})}
-		</script>
+			currency: Constants.AUDXId
+		}, function(request) {
+			var rate = request.exchanges[0].rateNQT / 1000000;
+			document.getElementById("audx").innerHTML = rate.toFixed(2);
+			var genesisDate = new Date("05/07/2021 12:34:00");
+			var genesisEpoch = genesisDate.getTime() / 1000;
+			var today = Math.round(Date.now() / 1000);
+			var dayAgo = today - 86440;
+			var weekAgo = today - 604800;
+			var dayAgoStamp = dayAgo - genesisEpoch;
+			var weekAgoStamp = weekAgo - genesisEpoch;
+			$.getJSON(Constants.apiUrl, {
+				requestType: "getExchanges",
+				currency: Constants.AUDXId,
+				timestamp: dayAgoStamp
+			}, function(dayPrice) {
+				if(dayPrice.exchanges.length != 0) {
+					var i = dayPrice.exchanges.length - 1;
+					var dayRate = dayPrice.exchanges[i].rateNQT / 1000000;
+					var day = ((rate - dayRate) / dayRate) * 100;
+					var dayPercent = day.toFixed(2);
+					if(dayPercent >= 0.00) {
+						var audxt = '';
+						audxt += '<span style="color:#3fcd59">' + dayPercent + '%' + '</span>';
+						document.getElementById("audxt").innerHTML = audxt;
+					} else {
+						var audxt = '';
+						audxt += '<span style="color:#ff363c">' + dayPercent + '%' + '</span>';
+						document.getElementById("audxt").innerHTML = audxt;
+					}
+				} else {
+					var audxt = '';
+					audxt += '<span style="color:#3fcd59">0.00%</span>';
+					document.getElementById("audxt").innerHTML = audxt;
+				}
+			})
+			$.getJSON(Constants.apiUrl, {
+				requestType: "getExchanges",
+				currency: Constants.AUDXId,
+				timestamp: weekAgoStamp
+			}, function(weekPrice) {
+				var i = weekPrice.exchanges.length - 1;
+				var weekRate = weekPrice.exchanges[i].rateNQT / 1000000;
+				var week = ((rate - weekRate) / weekRate) * 100;
+				var weekPercent = week.toFixed(2);
+				if(weekPercent >= 0.00) {
+					var audxs = '';
+					audxs += '<span style="color:#3fcd59">' + weekPercent + '%' + '</span>';
+					document.getElementById("audxs").innerHTML = audxs;
+				} else {
+					var audxs = '';
+					audxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
+					document.getElementById("audxs").innerHTML = audxs;
+				}
+			})
+		})
+	}
+	</script>
+	<script>
+	function priceCADX() {
+		$.getJSON(Constants.apiUrl, {
+			requestType: "getExchanges",
+			currency: Constants.CADXId
+		}, function(request) {
+			var rate = request.exchanges[0].rateNQT / 1000000;
+			document.getElementById("cadx").innerHTML = rate.toFixed(2);
+			var genesisDate = new Date("05/07/2021 12:34:00");
+			var genesisEpoch = genesisDate.getTime() / 1000;
+			var today = Math.round(Date.now() / 1000);
+			var dayAgo = today - 86440;
+			var weekAgo = today - 604800;
+			var dayAgoStamp = dayAgo - genesisEpoch;
+			var weekAgoStamp = weekAgo - genesisEpoch;
+			$.getJSON(Constants.apiUrl, {
+				requestType: "getExchanges",
+				currency: Constants.CADXId,
+				timestamp: dayAgoStamp
+			}, function(dayPrice) {
+				if(dayPrice.exchanges.length != 0) {
+					var i = dayPrice.exchanges.length - 1;
+					var dayRate = dayPrice.exchanges[i].rateNQT / 1000000;
+					var day = ((rate - dayRate) / dayRate) * 100;
+					var dayPercent = day.toFixed(2);
+					if(dayPercent >= 0.00) {
+						var cadxt = '';
+						cadxt += '<span style="color:#3fcd59">' + dayPercent + '%' + '</span>';
+						document.getElementById("cadxt").innerHTML = cadxt;
+					} else {
+						var cadxt = '';
+						cadxt += '<span style="color:#ff363c">' + dayPercent + '%' + '</span>';
+						document.getElementById("cadxt").innerHTML = cadxt;
+					}
+				} else {
+					var cadxt = '';
+					cadxt += '<span style="color:#3fcd59">0.00%</span>';
+					document.getElementById("cadxt").innerHTML = cadxt;
+				}
+			})
+			$.getJSON(Constants.apiUrl, {
+				requestType: "getExchanges",
+				currency: Constants.CADXId,
+				timestamp: weekAgoStamp
+			}, function(weekPrice) {
+				var i = weekPrice.exchanges.length - 1;
+				var weekRate = weekPrice.exchanges[i].rateNQT / 1000000;
+				var week = ((rate - weekRate) / weekRate) * 100;
+				var weekPercent = week.toFixed(2);
+				if(weekPercent >= 0.00) {
+					var cadxs = '';
+					cadxs += '<span style="color:#3fcd59">' + weekPercent + '%' + '</span>';
+					document.getElementById("cadxs").innerHTML = cadxs;
+				} else {
+					var cadxs = '';
+					cadxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
+					document.getElementById("cadxs").innerHTML = cadxs;
+				}
+			})
+		})
+	}
+	</script>
 </body>
+
 </html>
-
-
-
