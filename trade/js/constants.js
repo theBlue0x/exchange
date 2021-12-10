@@ -1,12 +1,22 @@
 var Constants = (function(Constants, $, undefined) {
   
-  Constants.USDXId = '9654905020611430837';
+  Constants.USDXId = '14747942010425256422';
 
-  Constants.AUDXId = '5228498090188867983';
+  Constants.AUDXId = '14530080847913819913';
 
-  Constants.CADXId = '4167983987313144762';
+  Constants.CADXId = '8754077983443406047';
 
-  Constants.CHFXId = '3006794435856739569';
+  Constants.CHFXId = '1322879812450325170';
+
+  Constants.CNYXId = '5564881228292563655';
+
+  Constants.EURXId = '42825740781441745';
+
+  Constants.GBPXId = '8436017731246237639';
+
+  Constants.IQDXId = '13207361026941294658';
+
+  Constants.IRRXId = '9629489175435899789';
 
   Constants.apiUrl = 'https://wallet.blue0x.com/nxt';
 
