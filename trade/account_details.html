@@ -104,6 +104,71 @@
         document.getElementById("CHFXAccountBalance").innerHTML = convertedCHFXAccountBalance.toLocaleString() + " CHFX";
       }
     }, "json");
+    $.post(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber,
+      currency: Constants.CNYXId
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("CNYXAccountBalance").innerHTML = "0 CNYX";
+      } else {
+        var CNYXAccountBalance = coinquery.units;
+        var convertedCNYXAccountBalance = CNYXAccountBalance / 100;
+        document.getElementById("CNYXAccountBalance").innerHTML = convertedCNYXAccountBalance.toLocaleString() + " CNYX";
+      }
+    }, "json");
+    $.post(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber,
+      currency: Constants.EURXId
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("EURXAccountBalance").innerHTML = "0 EURX";
+      } else {
+        var EURXAccountBalance = coinquery.units;
+        var convertedEURXAccountBalance = EURXAccountBalance / 100;
+        document.getElementById("EURXAccountBalance").innerHTML = convertedEURXAccountBalance.toLocaleString() + " EURX";
+      }
+    }, "json");
+    $.post(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber,
+      currency: Constants.GBPXId
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("GBPXAccountBalance").innerHTML = "0 GBPX";
+      } else {
+        var GBPXAccountBalance = coinquery.units;
+        var convertedGBPXAccountBalance = GBPXAccountBalance / 100;
+        document.getElementById("GBPXAccountBalance").innerHTML = convertedGBPXAccountBalance.toLocaleString() + " GBPX";
+      }
+    }, "json");
+    $.post(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber,
+      currency: Constants.IQDXId
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("IQDXAccountBalance").innerHTML = "0 IQDX";
+      } else {
+        var IQDXAccountBalance = coinquery.units;
+        var convertedIQDXAccountBalance = IQDXAccountBalance / 100;
+        document.getElementById("IQDXAccountBalance").innerHTML = convertedIQDXAccountBalance.toLocaleString() + " IQDX";
+      }
+    }, "json");
+    $.post(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber,
+      currency: Constants.IRRXId
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("IRRXAccountBalance").innerHTML = "0 IRRX";
+      } else {
+        var IRRXAccountBalance = coinquery.units;
+        var convertedIRRXAccountBalance = IRRXAccountBalance / 100;
+        document.getElementById("IRRXAccountBalance").innerHTML = convertedIRRXAccountBalance.toLocaleString() + " IRRX";
+      }
+    }, "json");
   };
   </script>
 </head>
@@ -130,6 +195,16 @@
                   <p><span id="CADXAccountBalance">Calculating CADX Balance...</span></p>
                   <a class="p-head"><span >CHFX Balance</span></a>
                   <p><span id="CHFXAccountBalance">Calculating CHFX Balance...</span></p>
+                  <a class="p-head"><span >CNYX Balance</span></a>
+                  <p><span id="CNYXAccountBalance">Calculating CNYX Balance...</span></p>
+                  <a class="p-head"><span >EURX Balance</span></a>
+                  <p><span id="EURXAccountBalance">Calculating EURX Balance...</span></p>
+                  <a class="p-head"><span >GBPX Balance</span></a>
+                  <p><span id="GBPXAccountBalance">Calculating GBPX Balance...</span></p>
+                  <a class="p-head"><span >IQDX Balance</span></a>
+                  <p><span id="IQDXAccountBalance">Calculating IQDX Balance...</span></p>
+                  <a class="p-head"><span >IRRX Balance</span></a>
+                  <p><span id="IRRXAccountBalance">Calculating IRRX Balance...</span></p>
                 </div>
                 <br/>
                 <div id="logoutButtonSection">

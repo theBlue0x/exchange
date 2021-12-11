@@ -123,8 +123,6 @@
           replace_CHFXAccountBalance += '<a class="p-head">CHFX Balance</a>';
           replace_CHFXAccountBalance += '<p>0 CHFX</p>';
           replace_CHFXAccountBalance += '</div>';
-          replace_CHFXAccountBalance += '</br>';
-          replace_CHFXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
           document.getElementById("CHFXAccountBalance").innerHTML = replace_CHFXAccountBalance;
         } else {
           var CHFXAccountBalance = coinquery.units;
@@ -134,9 +132,126 @@
           replace_CHFXAccountBalance += '<a class="p-head">CHFX Balance</a>';
           replace_CHFXAccountBalance += '<p>' + convertedCHFXAccountBalance.toLocaleString() + ' CHFX</p>';
           replace_CHFXAccountBalance += '</div>';
-          replace_CHFXAccountBalance += '</br>';
-          replace_CHFXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
           document.getElementById("CHFXAccountBalance").innerHTML = replace_CHFXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.CNYXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_CNYXAccountBalance = '';
+          replace_CNYXAccountBalance += '<div class="media-body">';
+          replace_CNYXAccountBalance += '<a class="p-head">CNYX Balance</a>';
+          replace_CNYXAccountBalance += '<p>0 CNYX</p>';
+          replace_CNYXAccountBalance += '</div>';
+          document.getElementById("CNYXAccountBalance").innerHTML = replace_CNYXAccountBalance;
+        } else {
+          var CNYXAccountBalance = coinquery.units;
+          var convertedCNYXAccountBalance = CNYXAccountBalance / 100;
+          var replace_CNYXAccountBalance = '';
+          replace_CNYXAccountBalance += '<div class="media-body">';
+          replace_CNYXAccountBalance += '<a class="p-head">CNYX Balance</a>';
+          replace_CNYXAccountBalance += '<p>' + convertedCNYXAccountBalance.toLocaleString() + ' CNYX</p>';
+          replace_CNYXAccountBalance += '</div>';
+          document.getElementById("CNYXAccountBalance").innerHTML = replace_CNYXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.EURXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_EURXAccountBalance = '';
+          replace_EURXAccountBalance += '<div class="media-body">';
+          replace_EURXAccountBalance += '<a class="p-head">EURX Balance</a>';
+          replace_EURXAccountBalance += '<p>0 EURX</p>';
+          replace_EURXAccountBalance += '</div>';
+          document.getElementById("EURXAccountBalance").innerHTML = replace_EURXAccountBalance;
+        } else {
+          var EURXAccountBalance = coinquery.units;
+          var convertedEURXAccountBalance = EURXAccountBalance / 100;
+          var replace_EURXAccountBalance = '';
+          replace_EURXAccountBalance += '<div class="media-body">';
+          replace_EURXAccountBalance += '<a class="p-head">EURX Balance</a>';
+          replace_EURXAccountBalance += '<p>' + convertedEURXAccountBalance.toLocaleString() + ' EURX</p>';
+          replace_EURXAccountBalance += '</div>';
+          document.getElementById("EURXAccountBalance").innerHTML = replace_EURXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.GBPXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_GBPXAccountBalance = '';
+          replace_GBPXAccountBalance += '<div class="media-body">';
+          replace_GBPXAccountBalance += '<a class="p-head">GBPX Balance</a>';
+          replace_GBPXAccountBalance += '<p>0 GBPX</p>';
+          replace_GBPXAccountBalance += '</div>';
+          document.getElementById("GBPXAccountBalance").innerHTML = replace_GBPXAccountBalance;
+        } else {
+          var GBPXAccountBalance = coinquery.units;
+          var convertedGBPXAccountBalance = GBPXAccountBalance / 100;
+          var replace_GBPXAccountBalance = '';
+          replace_GBPXAccountBalance += '<div class="media-body">';
+          replace_GBPXAccountBalance += '<a class="p-head">GBPX Balance</a>';
+          replace_GBPXAccountBalance += '<p>' + convertedGBPXAccountBalance.toLocaleString() + ' GBPX</p>';
+          replace_GBPXAccountBalance += '</div>';
+          document.getElementById("GBPXAccountBalance").innerHTML = replace_GBPXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.IQDXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_IQDXAccountBalance = '';
+          replace_IQDXAccountBalance += '<div class="media-body">';
+          replace_IQDXAccountBalance += '<a class="p-head">IQDX Balance</a>';
+          replace_IQDXAccountBalance += '<p>0 IQDX</p>';
+          replace_IQDXAccountBalance += '</div>';
+          document.getElementById("IQDXAccountBalance").innerHTML = replace_IQDXAccountBalance;
+        } else {
+          var IQDXAccountBalance = coinquery.units;
+          var convertedIQDXAccountBalance = IQDXAccountBalance / 100;
+          var replace_IQDXAccountBalance = '';
+          replace_IQDXAccountBalance += '<div class="media-body">';
+          replace_IQDXAccountBalance += '<a class="p-head">IQDX Balance</a>';
+          replace_IQDXAccountBalance += '<p>' + convertedIQDXAccountBalance.toLocaleString() + ' IQDX</p>';
+          replace_IQDXAccountBalance += '</div>';
+          document.getElementById("IQDXAccountBalance").innerHTML = replace_IQDXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.IRRXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_IRRXAccountBalance = '';
+          replace_IRRXAccountBalance += '<div class="media-body">';
+          replace_IRRXAccountBalance += '<a class="p-head">IRRX Balance</a>';
+          replace_IRRXAccountBalance += '<p>0 IRRX</p>';
+          replace_IRRXAccountBalance += '</div>';
+          replace_IRRXAccountBalance += '</br>';
+          replace_IRRXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("IRRXAccountBalance").innerHTML = replace_IRRXAccountBalance;
+        } else {
+          var IRRXAccountBalance = coinquery.units;
+          var convertedIRRXAccountBalance = IRRXAccountBalance / 100;
+          var replace_IRRXAccountBalance = '';
+          replace_IRRXAccountBalance += '<div class="media-body">';
+          replace_IRRXAccountBalance += '<a class="p-head">IRRX Balance</a>';
+          replace_IRRXAccountBalance += '<p>' + convertedIRRXAccountBalance.toLocaleString() + ' IRRX</p>';
+          replace_IRRXAccountBalance += '</div>';
+          replace_IRRXAccountBalance += '</br>';
+          replace_IRRXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("IRRXAccountBalance").innerHTML = replace_IRRXAccountBalance;
         }
       }, "json");
 
@@ -180,7 +295,11 @@
                 <div id="AUDXAccountBalance"> </div>
                 <div id="CADXAccountBalance"> </div>
                 <div id="CHFXAccountBalance"> </div>
-              </div>
+                <div id="CNYXAccountBalance"> </div>
+                <div id="EURXAccountBalance"> </div>
+                <div id="GBPXAccountBalance"> </div>
+                <div id="IQDXAccountBalance"> </div>
+                <div id="IRRXAccountBalance"> </div>
             </section>
           </div>
         </div>
