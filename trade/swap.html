@@ -186,15 +186,9 @@
           if(!error) {
             var rate = request.rateNQT / 1000000;
             var amountNeeded = request.amountNQT / 100000000;
-            console.log(baseAmountActual);
-            console.log(amountNeeded);
-            if(baseAmountActual <= amountNeeded) {
               $("#targetAmount").val(amountNeeded);
               $("#rateBLX").html('<span>' + rate + ' BLX</span>');
             } else {
-              $("#error").text('Not enough supply.');
-            }
-          } else {
             $("#error").text('Only 2 decimals places allowed.');
           }
         })
