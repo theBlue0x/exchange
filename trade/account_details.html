@@ -10,7 +10,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-reset.css" rel="stylesheet">
   <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet" />
   <script>
   function checkLogin() {
@@ -169,6 +169,45 @@
         document.getElementById("IRRXAccountBalance").innerHTML = convertedIRRXAccountBalance.toLocaleString() + " IRRX";
       }
     }, "json");
+    $.post(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber,
+      currency: Constants.JPYXId
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("JPYXAccountBalance").innerHTML = "0 JPYX";
+      } else {
+        var JPYXAccountBalance = coinquery.units;
+        var convertedJPYXAccountBalance = JPYXAccountBalance / 100;
+        document.getElementById("JPYXAccountBalance").innerHTML = convertedJPYXAccountBalance.toLocaleString() + " JPYX";
+      }
+    }, "json");
+    $.post(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber,
+      currency: Constants.NZDXId
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("NZDXAccountBalance").innerHTML = "0 NZDX";
+      } else {
+        var NZDXAccountBalance = coinquery.units;
+        var convertedNZDXAccountBalance = NZDXAccountBalance / 100;
+        document.getElementById("NZDXAccountBalance").innerHTML = convertedNZDXAccountBalance.toLocaleString() + " NZDX";
+      }
+    }, "json");$.post(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber,
+      currency: Constants.RUBXId
+    }, function(coinquery) {
+      if(coinquery == '{}') {
+        document.getElementById("RUBXAccountBalance").innerHTML = "0 RUBX";
+      } else {
+        var RUBXAccountBalance = coinquery.units;
+        var convertedRUBXAccountBalance = RUBXAccountBalance / 100;
+        document.getElementById("RUBXAccountBalance").innerHTML = convertedRUBXAccountBalance.toLocaleString() + " RUBX";
+      }
+    }, "json");
+
   };
   </script>
 </head>
@@ -183,28 +222,35 @@
             <section class="panel" style="color:#c1c1c1">
               <header class="panel-heading"> <b><span data-i18n="header_current_account_info">Current Account Information</span></b> </header>
               <div class="panel-body">
-                <div class="media-body"> <a class="p-head">Account ID</a>
+                <div class="media-body"> <p class="p-head">Account ID</p>
                   <p><span id="RSaccount_number">Account ID</span></p> 
-                  <a class="p-head"><span >BLX Balance</span></a>
+                  <p class="p-head"><span >BLX Balance</span></p>
                   <p><span id="currentAccountBalance">BLX Account Balance</span> BLX</p> 
-                  <a class="p-head"><span >USDX Balance</span></a>
+                  <p class="p-head"><span >USDX Balance</span></p>
                   <p><span id="USDXAccountBalance">Calculating USDX Balance...</span></p>
-                  <a class="p-head"><span >AUDX Balance</span></a>
+                  <p class="p-head"><span >AUDX Balance</span></p>
                   <p><span id="AUDXAccountBalance">Calculating AUDX Balance...</span></p>
-                  <a class="p-head"><span >CADX Balance</span></a>
+                  <p class="p-head"><span >CADX Balance</span></p>
                   <p><span id="CADXAccountBalance">Calculating CADX Balance...</span></p>
-                  <a class="p-head"><span >CHFX Balance</span></a>
+                  <p class="p-head"><span >CHFX Balance</span></p>
                   <p><span id="CHFXAccountBalance">Calculating CHFX Balance...</span></p>
-                  <a class="p-head"><span >CNYX Balance</span></a>
+                  <p class="p-head"><span >CNYX Balance</span></p>
                   <p><span id="CNYXAccountBalance">Calculating CNYX Balance...</span></p>
-                  <a class="p-head"><span >EURX Balance</span></a>
+                  <p class="p-head"><span >EURX Balance</span></p>
                   <p><span id="EURXAccountBalance">Calculating EURX Balance...</span></p>
-                  <a class="p-head"><span >GBPX Balance</span></a>
+                  <p class="p-head"><span >GBPX Balance</span></p>
                   <p><span id="GBPXAccountBalance">Calculating GBPX Balance...</span></p>
-                  <a class="p-head"><span >IQDX Balance</span></a>
+                  <p class="p-head"><span >IQDX Balance</span></p>
                   <p><span id="IQDXAccountBalance">Calculating IQDX Balance...</span></p>
-                  <a class="p-head"><span >IRRX Balance</span></a>
+                  <p class="p-head"><span >IRRX Balance</span></p>
                   <p><span id="IRRXAccountBalance">Calculating IRRX Balance...</span></p>
+                  <p class="p-head"><span >JPYX Balance</span></p>
+                  <p><span id="JPYXAccountBalance">Calculating JPYX Balance...</span></p>
+                  <p class="p-head"><span >NZDX Balance</span></p>
+                  <p><span id="NZDXAccountBalance">Calculating NZDX Balance...</span></p>
+                  <p class="p-head"><span >RUBX Balance</span></p>
+                  <p><span id="RUBXAccountBalance">Calculating RUBX Balance...</span></p>
+
                 </div>
                 <br/>
                 <div id="logoutButtonSection">

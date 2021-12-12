@@ -11,7 +11,7 @@
 	<link href="css/bootstrap-reset.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Assistant" rel="stylesheet">
 	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+	<link href="css/style.min.css" rel="stylesheet">
 	<link href="css/style-responsive.css" rel="stylesheet">
 	<style>
 	.table-striped>tbody>tr:nth-child(odd)>td,
@@ -277,10 +277,6 @@
 	<script src="js/moment.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 	<script>
-	var myVar = setInterval(function() {
-		price()
-	}, 6000);
-
 	function cnyxPrice() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",

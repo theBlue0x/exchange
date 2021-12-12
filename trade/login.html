@@ -10,7 +10,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-reset.css" rel="stylesheet">
   <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet" />
   <script>
   function login() {
@@ -33,11 +33,11 @@
           var replace_loginResult = '';
           replace_loginResult += '<div class="media-body">';
           replace_loginResult += '<p>You have logged in with the following account:</p>';
-          replace_loginResult += '<a class="p-head">Account ID</a>';
+          replace_loginResult += '<p class="p-head">Account ID</p>';
           replace_loginResult += '<p>' + result.accountRS + '</p>';
           replace_loginResult += '</div>';
           replace_loginResult += '<div class="media-body">';
-          replace_loginResult += '<a class="p-head">BLX Balance</a>';
+          replace_loginResult += '<p class="p-head">BLX Balance</p>';
           replace_loginResult += '<p>' + balance.toLocaleString() + ' BLX </p>';
           replace_loginResult += '</div>';
           document.getElementById("loginResult").innerHTML = replace_loginResult;
@@ -51,7 +51,7 @@
         if(coinquery == '{}') {
           var replace_USDXAccountBalance = '';
           replace_USDXAccountBalance += '<div class="media-body">';
-          replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
+          replace_USDXAccountBalance += '<p class="p-head">USDX Balance</p>';
           replace_USDXAccountBalance += '<p>0 USDX</p>';
           replace_USDXAccountBalance += '</div>';
           document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
@@ -60,7 +60,7 @@
           var convertedUSDXAccountBalance = USDXAccountBalance / 100;
           var replace_USDXAccountBalance = '';
           replace_USDXAccountBalance += '<div class="media-body">';
-          replace_USDXAccountBalance += '<a class="p-head">USDX Balance</a>';
+          replace_USDXAccountBalance += '<p class="p-head">USDX Balance</p>';
           replace_USDXAccountBalance += '<p>' + convertedUSDXAccountBalance.toLocaleString() + ' USDX</p>';
           replace_USDXAccountBalance += '</div>';
           document.getElementById("USDXAccountBalance").innerHTML = replace_USDXAccountBalance;
@@ -74,7 +74,7 @@
         if(coinquery == '{}') {
           var replace_AUDXAccountBalance = '';
           replace_AUDXAccountBalance += '<div class="media-body">';
-          replace_AUDXAccountBalance += '<a class="p-head">AUDX Balance</a>';
+          replace_AUDXAccountBalance += '<p class="p-head">AUDX Balance</p>';
           replace_AUDXAccountBalance += '<p>0 AUDX</p>';
           replace_AUDXAccountBalance += '</div>';
           document.getElementById("AUDXAccountBalance").innerHTML = replace_AUDXAccountBalance;
@@ -83,7 +83,7 @@
           var convertedAUDXAccountBalance = AUDXAccountBalance / 100;
           var replace_AUDXAccountBalance = '';
           replace_AUDXAccountBalance += '<div class="media-body">';
-          replace_AUDXAccountBalance += '<a class="p-head">AUDX Balance</a>';
+          replace_AUDXAccountBalance += '<p class="p-head">AUDX Balance</p>';
           replace_AUDXAccountBalance += '<p>' + convertedAUDXAccountBalance.toLocaleString() + ' AUDX</p>';
           replace_AUDXAccountBalance += '</div>';
           document.getElementById("AUDXAccountBalance").innerHTML = replace_AUDXAccountBalance;
@@ -97,7 +97,7 @@
         if(coinquery == '{}') {
           var replace_CADXAccountBalance = '';
           replace_CADXAccountBalance += '<div class="media-body">';
-          replace_CADXAccountBalance += '<a class="p-head">CADX Balance</a>';
+          replace_CADXAccountBalance += '<p class="p-head">CADX Balance</p>';
           replace_CADXAccountBalance += '<p>0 CADX</p>';
           replace_CADXAccountBalance += '</div>';
           document.getElementById("CADXAccountBalance").innerHTML = replace_CADXAccountBalance;
@@ -106,7 +106,7 @@
           var convertedCADXAccountBalance = CADXAccountBalance / 100;
           var replace_CADXAccountBalance = '';
           replace_CADXAccountBalance += '<div class="media-body">';
-          replace_CADXAccountBalance += '<a class="p-head">CADX Balance</a>';
+          replace_CADXAccountBalance += '<p class="p-head">CADX Balance</p>';
           replace_CADXAccountBalance += '<p>' + convertedCADXAccountBalance.toLocaleString() + ' CADX</p>';
           replace_CADXAccountBalance += '</div>';
           document.getElementById("CADXAccountBalance").innerHTML = replace_CADXAccountBalance;
@@ -120,7 +120,7 @@
         if(coinquery == '{}') {
           var replace_CHFXAccountBalance = '';
           replace_CHFXAccountBalance += '<div class="media-body">';
-          replace_CHFXAccountBalance += '<a class="p-head">CHFX Balance</a>';
+          replace_CHFXAccountBalance += '<p class="p-head">CHFX Balance</p>';
           replace_CHFXAccountBalance += '<p>0 CHFX</p>';
           replace_CHFXAccountBalance += '</div>';
           document.getElementById("CHFXAccountBalance").innerHTML = replace_CHFXAccountBalance;
@@ -129,7 +129,7 @@
           var convertedCHFXAccountBalance = CHFXAccountBalance / 100;
           var replace_CHFXAccountBalance = '';
           replace_CHFXAccountBalance += '<div class="media-body">';
-          replace_CHFXAccountBalance += '<a class="p-head">CHFX Balance</a>';
+          replace_CHFXAccountBalance += '<p class="p-head">CHFX Balance</p>';
           replace_CHFXAccountBalance += '<p>' + convertedCHFXAccountBalance.toLocaleString() + ' CHFX</p>';
           replace_CHFXAccountBalance += '</div>';
           document.getElementById("CHFXAccountBalance").innerHTML = replace_CHFXAccountBalance;
@@ -143,7 +143,7 @@
         if(coinquery == '{}') {
           var replace_CNYXAccountBalance = '';
           replace_CNYXAccountBalance += '<div class="media-body">';
-          replace_CNYXAccountBalance += '<a class="p-head">CNYX Balance</a>';
+          replace_CNYXAccountBalance += '<p class="p-head">CNYX Balance</p>';
           replace_CNYXAccountBalance += '<p>0 CNYX</p>';
           replace_CNYXAccountBalance += '</div>';
           document.getElementById("CNYXAccountBalance").innerHTML = replace_CNYXAccountBalance;
@@ -152,7 +152,7 @@
           var convertedCNYXAccountBalance = CNYXAccountBalance / 100;
           var replace_CNYXAccountBalance = '';
           replace_CNYXAccountBalance += '<div class="media-body">';
-          replace_CNYXAccountBalance += '<a class="p-head">CNYX Balance</a>';
+          replace_CNYXAccountBalance += '<p class="p-head">CNYX Balance</p>';
           replace_CNYXAccountBalance += '<p>' + convertedCNYXAccountBalance.toLocaleString() + ' CNYX</p>';
           replace_CNYXAccountBalance += '</div>';
           document.getElementById("CNYXAccountBalance").innerHTML = replace_CNYXAccountBalance;
@@ -166,7 +166,7 @@
         if(coinquery == '{}') {
           var replace_EURXAccountBalance = '';
           replace_EURXAccountBalance += '<div class="media-body">';
-          replace_EURXAccountBalance += '<a class="p-head">EURX Balance</a>';
+          replace_EURXAccountBalance += '<p class="p-head">EURX Balance</p>';
           replace_EURXAccountBalance += '<p>0 EURX</p>';
           replace_EURXAccountBalance += '</div>';
           document.getElementById("EURXAccountBalance").innerHTML = replace_EURXAccountBalance;
@@ -175,7 +175,7 @@
           var convertedEURXAccountBalance = EURXAccountBalance / 100;
           var replace_EURXAccountBalance = '';
           replace_EURXAccountBalance += '<div class="media-body">';
-          replace_EURXAccountBalance += '<a class="p-head">EURX Balance</a>';
+          replace_EURXAccountBalance += '<p class="p-head">EURX Balance</p>';
           replace_EURXAccountBalance += '<p>' + convertedEURXAccountBalance.toLocaleString() + ' EURX</p>';
           replace_EURXAccountBalance += '</div>';
           document.getElementById("EURXAccountBalance").innerHTML = replace_EURXAccountBalance;
@@ -189,7 +189,7 @@
         if(coinquery == '{}') {
           var replace_GBPXAccountBalance = '';
           replace_GBPXAccountBalance += '<div class="media-body">';
-          replace_GBPXAccountBalance += '<a class="p-head">GBPX Balance</a>';
+          replace_GBPXAccountBalance += '<p class="p-head">GBPX Balance</p>';
           replace_GBPXAccountBalance += '<p>0 GBPX</p>';
           replace_GBPXAccountBalance += '</div>';
           document.getElementById("GBPXAccountBalance").innerHTML = replace_GBPXAccountBalance;
@@ -198,7 +198,7 @@
           var convertedGBPXAccountBalance = GBPXAccountBalance / 100;
           var replace_GBPXAccountBalance = '';
           replace_GBPXAccountBalance += '<div class="media-body">';
-          replace_GBPXAccountBalance += '<a class="p-head">GBPX Balance</a>';
+          replace_GBPXAccountBalance += '<p class="p-head">GBPX Balance</p>';
           replace_GBPXAccountBalance += '<p>' + convertedGBPXAccountBalance.toLocaleString() + ' GBPX</p>';
           replace_GBPXAccountBalance += '</div>';
           document.getElementById("GBPXAccountBalance").innerHTML = replace_GBPXAccountBalance;
@@ -212,7 +212,7 @@
         if(coinquery == '{}') {
           var replace_IQDXAccountBalance = '';
           replace_IQDXAccountBalance += '<div class="media-body">';
-          replace_IQDXAccountBalance += '<a class="p-head">IQDX Balance</a>';
+          replace_IQDXAccountBalance += '<p class="p-head">IQDX Balance</p>';
           replace_IQDXAccountBalance += '<p>0 IQDX</p>';
           replace_IQDXAccountBalance += '</div>';
           document.getElementById("IQDXAccountBalance").innerHTML = replace_IQDXAccountBalance;
@@ -221,7 +221,7 @@
           var convertedIQDXAccountBalance = IQDXAccountBalance / 100;
           var replace_IQDXAccountBalance = '';
           replace_IQDXAccountBalance += '<div class="media-body">';
-          replace_IQDXAccountBalance += '<a class="p-head">IQDX Balance</a>';
+          replace_IQDXAccountBalance += '<p class="p-head">IQDX Balance</p>';
           replace_IQDXAccountBalance += '<p>' + convertedIQDXAccountBalance.toLocaleString() + ' IQDX</p>';
           replace_IQDXAccountBalance += '</div>';
           document.getElementById("IQDXAccountBalance").innerHTML = replace_IQDXAccountBalance;
@@ -235,23 +235,92 @@
         if(coinquery == '{}') {
           var replace_IRRXAccountBalance = '';
           replace_IRRXAccountBalance += '<div class="media-body">';
-          replace_IRRXAccountBalance += '<a class="p-head">IRRX Balance</a>';
+          replace_IRRXAccountBalance += '<p class="p-head">IRRX Balance</p>';
           replace_IRRXAccountBalance += '<p>0 IRRX</p>';
           replace_IRRXAccountBalance += '</div>';
-          replace_IRRXAccountBalance += '</br>';
-          replace_IRRXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
           document.getElementById("IRRXAccountBalance").innerHTML = replace_IRRXAccountBalance;
         } else {
           var IRRXAccountBalance = coinquery.units;
           var convertedIRRXAccountBalance = IRRXAccountBalance / 100;
           var replace_IRRXAccountBalance = '';
           replace_IRRXAccountBalance += '<div class="media-body">';
-          replace_IRRXAccountBalance += '<a class="p-head">IRRX Balance</a>';
+          replace_IRRXAccountBalance += '<p class="p-head">IRRX Balance</p>';
           replace_IRRXAccountBalance += '<p>' + convertedIRRXAccountBalance.toLocaleString() + ' IRRX</p>';
           replace_IRRXAccountBalance += '</div>';
-          replace_IRRXAccountBalance += '</br>';
-          replace_IRRXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
           document.getElementById("IRRXAccountBalance").innerHTML = replace_IRRXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.JPYXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_JPYXAccountBalance = '';
+          replace_JPYXAccountBalance += '<div class="media-body">';
+          replace_JPYXAccountBalance += '<p class="p-head">JPYX Balance</p>';
+          replace_JPYXAccountBalance += '<p>0 JPYX</p>';
+          replace_JPYXAccountBalance += '</div>';
+          document.getElementById("JPYXAccountBalance").innerHTML = replace_JPYXAccountBalance;
+        } else {
+          var JPYXAccountBalance = coinquery.units;
+          var convertedJPYXAccountBalance = JPYXAccountBalance / 100;
+          var replace_JPYXAccountBalance = '';
+          replace_JPYXAccountBalance += '<div class="media-body">';
+          replace_JPYXAccountBalance += '<p class="p-head">JPYX Balance</p>';
+          replace_JPYXAccountBalance += '<p>' + convertedJPYXAccountBalance.toLocaleString() + ' JPYX</p>';
+          replace_JPYXAccountBalance += '</div>';
+          document.getElementById("JPYXAccountBalance").innerHTML = replace_JPYXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.NZDXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_NZDXAccountBalance = '';
+          replace_NZDXAccountBalance += '<div class="media-body">';
+          replace_NZDXAccountBalance += '<p class="p-head">NZDX Balance</p>';
+          replace_NZDXAccountBalance += '<p>0 NZDX</p>';
+          replace_NZDXAccountBalance += '</div>';
+          document.getElementById("NZDXAccountBalance").innerHTML = replace_NZDXAccountBalance;
+        } else {
+          var NZDXAccountBalance = coinquery.units;
+          var convertedNZDXAccountBalance = NZDXAccountBalance / 100;
+          var replace_NZDXAccountBalance = '';
+          replace_NZDXAccountBalance += '<div class="media-body">';
+          replace_NZDXAccountBalance += '<p class="p-head">NZDX Balance</p>';
+          replace_NZDXAccountBalance += '<p>' + convertedNZDXAccountBalance.toLocaleString() + ' NZDX</p>';
+          replace_NZDXAccountBalance += '</div>';
+          document.getElementById("NZDXAccountBalance").innerHTML = replace_NZDXAccountBalance;
+        }
+      }, "json");
+      $.post(Constants.apiUrl, {
+        requestType: 'getAccountCurrencies',
+        account: currentRSAccountNumber,
+        currency: Constants.RUBXId
+      }, function(coinquery) {
+        if(coinquery == '{}') {
+          var replace_RUBXAccountBalance = '';
+          replace_RUBXAccountBalance += '<div class="media-body">';
+          replace_RUBXAccountBalance += '<p class="p-head">RUBX Balance</p>';
+          replace_RUBXAccountBalance += '<p>0 RUBX</p>';
+          replace_RUBXAccountBalance += '</div>';
+          replace_RUBXAccountBalance += '</br>';
+          replace_RUBXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("RUBXAccountBalance").innerHTML = replace_RUBXAccountBalance;
+        } else {
+          var RUBXAccountBalance = coinquery.units;
+          var convertedRUBXAccountBalance = RUBXAccountBalance / 100;
+          var replace_RUBXAccountBalance = '';
+          replace_RUBXAccountBalance += '<div class="media-body">';
+          replace_RUBXAccountBalance += '<p class="p-head">RUBX Balance</p>';
+          replace_RUBXAccountBalance += '<p>' + convertedRUBXAccountBalance.toLocaleString() + ' RUBX</p>';
+          replace_RUBXAccountBalance += '</div>';
+          replace_RUBXAccountBalance += '</br>';
+          replace_RUBXAccountBalance += '<a class="btn btn-info" href="markets.html" role="button">View Markets</a>&nbsp;&nbsp;<a class="btn btn-info" href="swap.html" role="button">Quick Swap</a>';
+          document.getElementById("RUBXAccountBalance").innerHTML = replace_RUBXAccountBalance;
         }
       }, "json");
 
@@ -300,6 +369,9 @@
                 <div id="GBPXAccountBalance"> </div>
                 <div id="IQDXAccountBalance"> </div>
                 <div id="IRRXAccountBalance"> </div>
+                <div id="JPYXAccountBalance"> </div>
+                <div id="NZDXAccountBalance"> </div>
+                <div id="RUBXAccountBalance"> </div>
             </section>
           </div>
         </div>

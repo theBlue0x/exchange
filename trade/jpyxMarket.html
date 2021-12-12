@@ -51,7 +51,7 @@
 	</style>
 </head>
 
-<body class="full-width" onload="chfxChart(); chfxPrice(); buyOffers(); sellOffers(); setAccountNumber();">
+<body class="full-width" onload="jpyxChart(); jpyxPrice(); buyOffers(); sellOffers(); setAccountNumber();">
 	<section id="container">
 		<script type="text/javascript" src="js/menu.js"></script>
 		<section id="main-content">
@@ -60,8 +60,8 @@
 					<div class="col-lg-12">
 						<div class="panel">
 							<header class="panel-heading" style="color:white;">
-								<p>CHFX - Swiss Franc Market</p>
-								<p style="font-weight:500;font-size:14px;">Last Price : <span id="chfx">00.00</span> BLX</p>
+								<p>JPYX - Japanese Yen Market</p>
+								<p style="font-weight:500;font-size:14px;">Last Price : <span id="jpyx">00.00</span> BLX</p>
 				</header>
 				<div class="panel-body">
 					<div class="table-responsive">
@@ -74,7 +74,7 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="panel">
-							<header class="panel-heading" style="color:#d1d1d1;"> <span>Buy CHFX</span><a data-target="#buyLimitModal" data-toggle="modal" style="float:right;font-size:14px;cursor:pointer;">Limit Order</a> </header>
+							<header class="panel-heading" style="color:#d1d1d1;"> <span>Buy JPYX</span><a data-target="#buyLimitModal" data-toggle="modal" style="float:right;font-size:14px;cursor:pointer;">Limit Order</a> </header>
 							<div class="panel-body" style="max-height:185px;overflow:auto;padding-left:15px;">
 								<table class="display table table-striped">
 									<thead>
@@ -91,7 +91,7 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="panel">
-							<header class="panel-heading" style="color:#d1d1d1;"> <span>Sell CHFX</span><a data-toggle="modal" data-target="#sellLimitModal" style="float:right;font-size:14px;cursor:pointer;">Limit Order</a> </header>
+							<header class="panel-heading" style="color:#d1d1d1;"> <span>Sell JPYX</span><a data-toggle="modal" data-target="#sellLimitModal" style="float:right;font-size:14px;cursor:pointer;">Limit Order</a> </header>
 							<div class="panel-body" style="max-height:185px;overflow:auto;padding-left: 15px;">
 								<table class="display table table-striped">
 									<thead>
@@ -113,11 +113,11 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title"><b>Sell CHFX (Limit Order)</b></h4> </div>
+								<h4 class="modal-title"><b>Sell JPYX (Limit Order)</b></h4> </div>
 							<div class="modal-body" align="center">
 								<p class="centered">Amount to Sell:</p>
 								<div class="input-group" style="max-width:300px;">
-									<input type="number" id="sellLimitBaseAmount" required class="form-control"> <span class="input-group-addon">&nbsp;CHFX&nbsp;</span> </div>
+									<input type="number" id="sellLimitBaseAmount" required class="form-control"> <span class="input-group-addon">&nbsp;JPYX&nbsp;</span> </div>
 								<br/>
 								<p class="centered">Price:</p>
 								<div class="input-group" style="max-width:300px;">
@@ -153,11 +153,11 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title"><b>Buy CHFX (Limit Order)</b></h4> </div>
+								<h4 class="modal-title"><b>Buy JPYX (Limit Order)</b></h4> </div>
 							<div class="modal-body" align="center">
 								<p class="centered">Amount to Buy:</p>
 								<div class="input-group" style="max-width:300px;">
-									<input type="number" id="buyLimitBaseAmount" required="required" class="form-control"> <span class="input-group-addon">&nbsp;CHFX&nbsp;</span> </div>
+									<input type="number" id="buyLimitBaseAmount" required="required" class="form-control"> <span class="input-group-addon">&nbsp;JPYX&nbsp;</span> </div>
 								<br/>
 								<p class="centered">Price:</p>
 								<div class="input-group" style="max-width:300px;">
@@ -193,11 +193,11 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title"><b>Buy CHFX</b></h4> </div>
+								<h4 class="modal-title"><b>Buy JPYX</b></h4> </div>
 							<div class="modal-body" align="center">
 								<p class="centered">Amount to Buy:</p>
 								<div class="input-group" style="max-width:300px;">
-									<input type="number" id="buyBaseAmount" required class="form-control" onkeyup="previewBuyMarket();"> <span class="input-group-addon">&nbsp;CHFX&nbsp;</span> </div>
+									<input type="number" id="buyBaseAmount" required class="form-control" onkeyup="previewBuyMarket();"> <span class="input-group-addon">&nbsp;JPYX&nbsp;</span> </div>
 								<br/>
 								<p class="centered">Price:</p>
 								<div class="input-group" style="max-width:300px;"> <span id="modalBuyRateDisplay" class="form-control"></span> <span class="input-group-addon">&nbsp;BLX&nbsp;</span> </div>
@@ -232,12 +232,12 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title"><b>Sell CHFX</b></h4> </div>
+								<h4 class="modal-title"><b>Sell JPYX</b></h4> </div>
 							<div class="modal-body">
 								<div class="modal-body" align="center">
 									<p class="centered">Amount to Sell:</p>
 									<div class="input-group" style="max-width:300px;">
-										<input type="number" id="sellBaseAmount" required="required" class="form-control" onkeyup="previewSellMarket();"> <span class="input-group-addon">&nbsp;CHFX&nbsp;</span> </div>
+										<input type="number" id="sellBaseAmount" required="required" class="form-control" onkeyup="previewSellMarket();"> <span class="input-group-addon">&nbsp;JPYX&nbsp;</span> </div>
 									<br/>
 									<p class="centered">Price:</p>
 									<div class="input-group" style="max-width:300px;"> <span id="modalSellRateDisplay" class="form-control"></span> <span class="input-group-addon">&nbsp;BLX&nbsp;</span> </div>
@@ -277,21 +277,21 @@
 	<script src="js/moment.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 	<script>
-	function chfxPrice() {
+	function jpyxPrice() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
-			currency: Constants.CHFXId
+			currency: Constants.JPYXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("chfx").innerText = rate.toFixed(3);
+			document.getElementById("jpyx").innerText = rate.toFixed(3);
 		})
 	}
 	</script>
 	<script>
-	function chfxChart () {
+	function jpyxChart () {
 	$.getJSON(Constants.apiUrl, {
 		requestType: "getExchanges",
-		currency: Constants.CHFXId
+		currency: Constants.JPYXId
 	}, function(request) {
 		var data = [];
 		var labels = [];
@@ -329,7 +329,7 @@
 			data: {
 				labels: labels,
 				datasets: [{
-					label: 'CHFX / BLX Price',
+					label: 'JPYX / BLX Price',
 					data: data,
 					borderColor: 'rgba(3, 201, 169, 1)',
 					backgroundColor: gradient,
@@ -348,7 +348,7 @@
 	function sellOffers() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getSellOffers",
-			currency: Constants.CHFXId,
+			currency: Constants.JPYXId,
 			availableOnly: "true"
 		}, function(request) {
 			for(var i = 0; i < request.offers.length; i++) {
@@ -376,7 +376,7 @@
 	function buyOffers() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getBuyOffers",
-			currency: Constants.CHFXId,
+			currency: Constants.JPYXId,
 			availableOnly: "true"
 		}, function(request) {
 			for(var i = 0; i < request.offers.length; i++) {
@@ -432,7 +432,7 @@
 		var givenRateBuy = $("#buyModalRateNQT").text();
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getAvailableToBuy",
-			currency: Constants.CHFXId,
+			currency: Constants.JPYXId,
 			units: $("#buyBaseAmount").val() * 100
 		}, function(request) {
 			console.log(request)
@@ -457,7 +457,7 @@
 		var givenRateSell = $("#sellModalRateNQT").text();
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getAvailableToSell",
-			currency: Constants.CHFXId,
+			currency: Constants.JPYXId,
 			units: $("#sellBaseAmount").val() * 100
 		}, function(request) {
 			var error = request.errorDescription;
@@ -480,7 +480,7 @@
 		var units = $("#sellBaseAmount").val() * 100;
 		$.post(Constants.apiUrl, {
 			requestType: "currencySell",
-			currency: Constants.CHFXId,
+			currency: Constants.JPYXId,
 			rateNQT: $("#sellModalRateNQT").text(),
 			units: units,
 			secretPhrase: $("#sellSecretPhrase").val(),
@@ -498,7 +498,7 @@
 				rows += '<p>Transaction Successful!</p>';
 				rows += '<p>TX ID: ' + txID + '</p>';
 				rows += '<br/>';
-				rows += '<a class="btn btn-info" href="chfxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
+				rows += '<a class="btn btn-info" href="jpyxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
 				$("#txID").html(rows);
 			} else {
 				var rows = '';
@@ -508,7 +508,7 @@
 				rows += '<p>Transaction Error:</p>';
 				rows += '<p>' + error + '</p>';
 				rows += '<br/>';
-				rows += '<a class="btn btn-info" href="chfxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
+				rows += '<a class="btn btn-info" href="jpyxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
 				$("#txID").html(rows);
 			}
 		})
@@ -519,7 +519,7 @@
 		var units = $("#buyBaseAmount").val() * 100;
 		$.post(Constants.apiUrl, {
 			requestType: "currencyBuy",
-			currency: Constants.CHFXId,
+			currency: Constants.JPYXId,
 			rateNQT: $("#buyModalRateNQT").text(),
 			units: units,
 			secretPhrase: $("#buySecretPhrase").val(),
@@ -537,7 +537,7 @@
 				rows += '<p>Transaction Successful!</p>';
 				rows += '<p>TX ID: ' + txID + '</p>';
 				rows += '<br/>';
-				rows += '<a class="btn btn-info" href="chfxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
+				rows += '<a class="btn btn-info" href="jpyxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
 				$("#txID").html(rows);
 			} else {
 				var rows = '';
@@ -547,7 +547,7 @@
 				rows += '<p>Transaction Error:</p>';
 				rows += '<p>' + error + '</p>';
 				rows += '<br/>';
-				rows += '<a class="btn btn-info" href="chfxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
+				rows += '<a class="btn btn-info" href="jpyxMarket.html" role="button">Go Back</a>&nbsp;&nbsp;<a class="btn btn-info" href="account_details.html" role="button">View Account</a>';
 				$("#txID").html(rows);
 			}
 		})
