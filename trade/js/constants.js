@@ -14,15 +14,15 @@ var Constants = (function(Constants, $, undefined) {
 
   Constants.GBPXId = '2452657458252170743';
 
-  Constants.IQDXId = '11226732098531962105';
+  Constants.IQDXId = '14799730732981270045';
 
-  Constants.IRRXId = '9042428651686798832';
+  Constants.IRRXId = '14495143359128380510';
 
   Constants.JPYXId = '16331761681243637490';
 
   Constants.NZDXId = '7273653540091500252';
 
-  Constants.RUBXId = '13191432511567467657';
+  Constants.RUBXId = '1208691093476781829';
 
   Constants.apiUrl = 'https://wallet.blue0x.com/nxt';
 
