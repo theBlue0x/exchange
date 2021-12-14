@@ -18,7 +18,7 @@ var Constants = (function(Constants, $, undefined) {
 
   Constants.IRRXId = '14495143359128380510';
 
-  Constants.JPYXId = '16331761681243637490';
+  Constants.JPYXId = '1557895697427053628';
 
   Constants.NZDXId = '7273653540091500252';
 
