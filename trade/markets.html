@@ -8,10 +8,10 @@
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<title>Blue0x | EXCHANGE</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/bootstrap-reset.css" rel="stylesheet">
+	<link href="css/bootstrap-reset.min.css" rel="stylesheet">
 	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/style.min.css" rel="stylesheet">
-	<link href="css/style-responsive.css" rel="stylesheet">
+	<link href="css/style-responsive.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/4.1.5/css/flag-icons.min.css" integrity="sha512-UwbBNAFoECXUPeDhlKR3zzWU3j8ddKIQQsDOsKhXQGdiB5i3IHEXr9kXx82+gaHigbNKbTDp3VY/G6gZqva6ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet">
 	<style>
 	h4 {
@@ -228,7 +228,7 @@
 			currency: Constants.USDXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("usdx").innerHTML = rate.toFixed(3);
+			document.getElementById("usdx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -290,7 +290,7 @@
 			currency: Constants.AUDXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("audx").innerHTML = rate.toFixed(3);
+			document.getElementById("audx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -352,7 +352,7 @@
 			currency: Constants.CADXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("cadx").innerHTML = rate.toFixed(3);
+			document.getElementById("cadx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -414,7 +414,7 @@
 			currency: Constants.CHFXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("chfx").innerHTML = rate.toFixed(3);
+			document.getElementById("chfx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -476,7 +476,7 @@
 			currency: Constants.CNYXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("cnyx").innerHTML = rate.toFixed(3);
+			document.getElementById("cnyx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -538,7 +538,7 @@
 			currency: Constants.EURXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("eurx").innerHTML = rate.toFixed(3);
+			document.getElementById("eurx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -600,7 +600,7 @@
 			currency: Constants.GBPXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("gbpx").innerHTML = rate.toFixed(3);
+			document.getElementById("gbpx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -662,7 +662,7 @@
 			currency: Constants.IQDXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("iqdx").innerHTML = rate.toFixed(3);
+			document.getElementById("iqdx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -724,7 +724,7 @@
 			currency: Constants.IRRXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("irrx").innerHTML = rate.toFixed(3);
+			document.getElementById("irrx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -786,7 +786,7 @@
 			currency: Constants.JPYXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("jpyx").innerHTML = rate.toFixed(3);
+			document.getElementById("jpyx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -848,7 +848,7 @@
 			currency: Constants.NZDXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("nzdx").innerHTML = rate.toFixed(3);
+			document.getElementById("nzdx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
@@ -910,7 +910,7 @@
 			currency: Constants.RUBXId
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
-			document.getElementById("rubx").innerHTML = rate.toFixed(3);
+			document.getElementById("rubx").innerHTML = rate.toFixed(2);
 			var genesisDate = new Date("05/07/2021 12:34:00");
 			var genesisEpoch = genesisDate.getTime() / 1000;
 			var today = Math.round(Date.now() / 1000);
