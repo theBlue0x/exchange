@@ -1,28 +1,28 @@
 var Constants = (function(Constants, $, undefined) {
   
-  Constants.USDXId = '12361038634406100903';
+  Constants.USDXId = '6242187520250422526';
 
-  Constants.AUDXId = '13755926291471912837';
+  Constants.AUDXId = '11676984573525209263';
 
-  Constants.CADXId = '12856200414574676685';
+  Constants.CADXId = '2183128855145070353';
 
-  Constants.CHFXId = '1064277210490295600';
+  Constants.CHFXId = '6248402454397477058';
 
-  Constants.CNYXId = '14388321160136571025';
+  Constants.CNYXId = '10313324264777951073';
 
-  Constants.EURXId = '1747967575246737636';
+  Constants.EURXId = '17316394178219449698';
 
-  Constants.GBPXId = '3470038062234507835';
+  Constants.GBPXId = '5110227727445751126';
 
-  Constants.IQDXId = '3628129833806751431';
+  Constants.IQDXId = '1443030428487847127';
 
-  Constants.IRRXId = '18335330955989912824';
+  Constants.IRRXId = '11876333508008631635';
 
-  Constants.JPYXId = '2503163404990431171';
+  Constants.JPYXId = '14731857139263877382';
 
-  Constants.NZDXId = '7867213877524238558';
+  Constants.NZDXId = '140656572595178442';
 
-  Constants.RUBXId = '7631292889948594969';
+  Constants.RUBXId = '15255615064190511978';
 
   Constants.apiUrl = 'https://wallet.blue0x.com/nxt';
 
