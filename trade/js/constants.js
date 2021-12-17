@@ -14,9 +14,9 @@ var Constants = (function(Constants, $, undefined) {
 
   Constants.GBPXId = '3470038062234507835';
 
-  Constants.IQDXId = '2668020061613102483';
+  Constants.IQDXId = '3628129833806751431';
 
-  Constants.IRRXId = '14975634867538864804';
+  Constants.IRRXId = '18335330955989912824';
 
   Constants.JPYXId = '2503163404990431171';
 
