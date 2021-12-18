@@ -21,7 +21,7 @@
 	</style>
 </head>
 
-<body class="full-width" onload="priceUSDX(); priceAUDX(); priceCADX(); priceCHFX(); priceCNYX(); priceEURX(); priceGBPX(); priceIQDX(); priceIRRX(); priceJPYX(); priceNZDX(); priceRUBX(); setAccountNumber();">
+<body class="full-width" onload="setAccountNumber();">
 	<section id="container">
 		<script type="text/javascript" src="js/menu.js"></script>
 		<section id="main-content">
@@ -222,7 +222,6 @@
 	<script src="js/constants.js"></script>
 	<script src="js/freemarket_scripts.js"></script>
 	<script>
-	function priceUSDX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.USDXId
@@ -258,8 +257,7 @@
 					var usdxt = '';
 					usdxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("usdxt").innerHTML = usdxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.USDXId,
@@ -277,13 +275,9 @@
 					var usdxs = '';
 					usdxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("usdxs").innerHTML = usdxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceAUDX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.AUDXId
@@ -319,8 +313,7 @@
 					var audxt = '';
 					audxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("audxt").innerHTML = audxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.AUDXId,
@@ -338,13 +331,9 @@
 					var audxs = '';
 					audxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("audxs").innerHTML = audxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceCADX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.CADXId
@@ -380,8 +369,7 @@
 					var cadxt = '';
 					cadxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("cadxt").innerHTML = cadxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.CADXId,
@@ -399,13 +387,9 @@
 					var cadxs = '';
 					cadxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("cadxs").innerHTML = cadxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceCHFX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.CHFXId
@@ -441,8 +425,7 @@
 					var chfxt = '';
 					chfxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("chfxt").innerHTML = chfxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.CHFXId,
@@ -460,13 +443,9 @@
 					var chfxs = '';
 					chfxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("chfxs").innerHTML = chfxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceCNYX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.CNYXId
@@ -502,8 +481,7 @@
 					var cnyxt = '';
 					cnyxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("cnyxt").innerHTML = cnyxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.CNYXId,
@@ -521,13 +499,9 @@
 					var cnyxs = '';
 					cnyxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("cnyxs").innerHTML = cnyxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceEURX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.EURXId
@@ -563,8 +537,7 @@
 					var eurxt = '';
 					eurxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("eurxt").innerHTML = eurxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.EURXId,
@@ -582,13 +555,9 @@
 					var eurxs = '';
 					eurxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("eurxs").innerHTML = eurxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceGBPX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.GBPXId
@@ -624,8 +593,7 @@
 					var gbpxt = '';
 					gbpxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("gbpxt").innerHTML = gbpxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.GBPXId,
@@ -643,13 +611,9 @@
 					var gbpxs = '';
 					gbpxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("gbpxs").innerHTML = gbpxs;
-				}
-			})
-		})
-	}
+				}})})
 	</script>
 	<script>
-	function priceIQDX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.IQDXId
@@ -685,8 +649,7 @@
 					var iqdxt = '';
 					iqdxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("iqdxt").innerHTML = iqdxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.IQDXId,
@@ -704,13 +667,9 @@
 					var iqdxs = '';
 					iqdxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("iqdxs").innerHTML = iqdxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceIRRX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.IRRXId
@@ -765,13 +724,9 @@
 					var irrxs = '';
 					irrxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("irrxs").innerHTML = irrxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceJPYX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.JPYXId
@@ -807,8 +762,7 @@
 					var jpyxt = '';
 					jpyxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("jpyxt").innerHTML = jpyxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.JPYXId,
@@ -826,13 +780,9 @@
 					var jpyxs = '';
 					jpyxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("jpyxs").innerHTML = jpyxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceNZDX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.NZDXId
@@ -868,8 +818,7 @@
 					var nzdxt = '';
 					nzdxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("nzdxt").innerHTML = nzdxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.NZDXId,
@@ -887,13 +836,9 @@
 					var nzdxs = '';
 					nzdxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("nzdxs").innerHTML = nzdxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 	<script>
-	function priceRUBX() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
 			currency: Constants.RUBXId
@@ -929,8 +874,7 @@
 					var rubxt = '';
 					rubxt += '<span style="color:#3fcd59">0.00%</span>';
 					document.getElementById("rubxt").innerHTML = rubxt;
-				}
-			})
+				}})
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.RUBXId,
@@ -948,10 +892,7 @@
 					var rubxs = '';
 					rubxs += '<span style="color:#ff363c">' + weekPercent + '%' + '</span>';
 					document.getElementById("rubxs").innerHTML = rubxs;
-				}
-			})
-		})
-	}
+		}})})
 	</script>
 
 </body>
