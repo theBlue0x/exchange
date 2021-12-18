@@ -293,11 +293,10 @@
 		var data = [];
 		var labels = [];
 		for(i = request.exchanges.length - 1; i >= 0; i--) {
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
+			var genesisDate = 1620390840;
 			var date = request.exchanges[i].timestamp;
-			var blockEpoch = genesisEpoch + date;
-			var blockDate = new Date(blockEpoch * 1000);
+			var blockEpoch = (genesisDate + date) * 1000;
+			var blockDate = new Date(blockEpoch);
 			var price = request.exchanges[i].rateNQT / 1000000;
 			data.push(price);
 			labels.push(moment(blockDate).format('MM/DD'));

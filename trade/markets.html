@@ -229,13 +229,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("usdx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.USDXId,
@@ -291,13 +290,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("audx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.AUDXId,
@@ -353,13 +351,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("cadx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.CADXId,
@@ -415,13 +412,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("chfx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.CHFXId,
@@ -477,13 +473,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("cnyx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.CNYXId,
@@ -539,13 +534,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("eurx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.EURXId,
@@ -601,13 +595,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("gbpx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.GBPXId,
@@ -663,13 +656,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("iqdx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.IQDXId,
@@ -725,13 +717,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("irrx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.IRRXId,
@@ -787,13 +778,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("jpyx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.JPYXId,
@@ -849,13 +839,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("nzdx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.NZDXId,
@@ -911,13 +900,12 @@
 		}, function(request) {
 			var rate = request.exchanges[0].rateNQT / 1000000;
 			document.getElementById("rubx").innerHTML = rate.toFixed(2);
-			var genesisDate = new Date("05/07/2021 12:34:00");
-			var genesisEpoch = genesisDate.getTime() / 1000;
-			var today = Math.round(Date.now() / 1000);
+			var genesisDate = 1620390840;
+			var today = Math.floor(Date.now() / 1000)
 			var dayAgo = today - 86440;
 			var weekAgo = today - 604800;
-			var dayAgoStamp = dayAgo - genesisEpoch;
-			var weekAgoStamp = weekAgo - genesisEpoch;
+			var dayAgoStamp = dayAgo - genesisDate;
+			var weekAgoStamp = weekAgo - genesisDate;
 			$.getJSON(Constants.apiUrl, {
 				requestType: "getExchanges",
 				currency: Constants.RUBXId,
