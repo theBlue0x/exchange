@@ -197,6 +197,7 @@
   </script>
   <script>
   function swapModal() {
+    $("#modalErrorMessage").text('');
     var baseCurrency = $("#baseCurrency").val();
     $.getJSON(Constants.apiUrl, {
       requestType: "getCurrency",
@@ -217,13 +218,14 @@
           var baseAmountActual = $("#baseAmount").val();
           var amountNeeded = request.amountNQT / 1000000;
           var amountNeededFormatted = Math.floor(amountNeeded)/100;
+          var amountNeededFormatted1 = amountNeededFormatted.toFixed(2);
           var targetCurrency = $("#targetCurrency").val();
           $("#swapModal").modal();
           $("#modalCurrencyAdd").text(baseCurrency);
           $("#modalRateDisplay").text(rate);
           $("#modalBaseAmount").val(baseAmountActual);
           $("#modalBaseAmountDisplay").text(baseAmountDisplay);
-          $("#modalTargetAmount").text(amountNeededFormatted);
+          $("#modalTargetAmount").text(amountNeededFormatted1);
         } else {
           $("#modalErrorMessage").text(error1);
         }
