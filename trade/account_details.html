@@ -48,170 +48,71 @@
       account: currentRSAccountNumber,
       includeEffectiveBalance: "true"
     }, function(result) {
-      var balance = result.balanceNQT / 100000000;
+      var total = result.balanceNQT / 100000000;
+      var available = result.unconfirmedBalanceNQT/ 100000000;
+      var rows = ' ';
+          rows += '<p><b>Available:</b> ' + Number(available).toLocaleString() + ' BLX</p>'; 
+          rows += '<p><b>Total:</b> ' + Number(total).toLocaleString() + ' BLX</p>';
       document.getElementById("RSaccount_number").innerHTML = currentRSAccountNumber;
-      document.getElementById("currentAccountBalance").innerHTML = balance.toLocaleString();
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.USDXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("USDXAccountBalance").innerHTML = "0 USDX";
-      } else {
-        var USDXAccountBalance = coinquery.units;
-        var convertedUSDXAccountBalance = USDXAccountBalance / 100;
-        document.getElementById("USDXAccountBalance").innerHTML = convertedUSDXAccountBalance.toLocaleString() + " USDX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.AUDXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("AUDXAccountBalance").innerHTML = "0 AUDX";
-      } else {
-        var AUDXAccountBalance = coinquery.units;
-        var convertedAUDXAccountBalance = AUDXAccountBalance / 100;
-        document.getElementById("AUDXAccountBalance").innerHTML = convertedAUDXAccountBalance.toLocaleString() + " AUDX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.CADXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("CADXAccountBalance").innerHTML = "0 CADX";
-      } else {
-        var CADXAccountBalance = coinquery.units;
-        var convertedCADXAccountBalance = CADXAccountBalance / 100;
-        document.getElementById("CADXAccountBalance").innerHTML = convertedCADXAccountBalance.toLocaleString() + " CADX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.CHFXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("CHFXAccountBalance").innerHTML = "0 CHFX";
-      } else {
-        var CHFXAccountBalance = coinquery.units;
-        var convertedCHFXAccountBalance = CHFXAccountBalance / 100;
-        document.getElementById("CHFXAccountBalance").innerHTML = convertedCHFXAccountBalance.toLocaleString() + " CHFX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.CNYXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("CNYXAccountBalance").innerHTML = "0 CNYX";
-      } else {
-        var CNYXAccountBalance = coinquery.units;
-        var convertedCNYXAccountBalance = CNYXAccountBalance / 100;
-        document.getElementById("CNYXAccountBalance").innerHTML = convertedCNYXAccountBalance.toLocaleString() + " CNYX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.EURXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("EURXAccountBalance").innerHTML = "0 EURX";
-      } else {
-        var EURXAccountBalance = coinquery.units;
-        var convertedEURXAccountBalance = EURXAccountBalance / 100;
-        document.getElementById("EURXAccountBalance").innerHTML = convertedEURXAccountBalance.toLocaleString() + " EURX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.GBPXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("GBPXAccountBalance").innerHTML = "0 GBPX";
-      } else {
-        var GBPXAccountBalance = coinquery.units;
-        var convertedGBPXAccountBalance = GBPXAccountBalance / 100;
-        document.getElementById("GBPXAccountBalance").innerHTML = convertedGBPXAccountBalance.toLocaleString() + " GBPX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.IQDXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("IQDXAccountBalance").innerHTML = "0 IQDX";
-      } else {
-        var IQDXAccountBalance = coinquery.units;
-        var convertedIQDXAccountBalance = IQDXAccountBalance / 100;
-        document.getElementById("IQDXAccountBalance").innerHTML = convertedIQDXAccountBalance.toLocaleString() + " IQDX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.IRRXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("IRRXAccountBalance").innerHTML = "0 IRRX";
-      } else {
-        var IRRXAccountBalance = coinquery.units;
-        var convertedIRRXAccountBalance = IRRXAccountBalance / 100;
-        document.getElementById("IRRXAccountBalance").innerHTML = convertedIRRXAccountBalance.toLocaleString() + " IRRX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.JPYXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("JPYXAccountBalance").innerHTML = "0 JPYX";
-      } else {
-        var JPYXAccountBalance = coinquery.units;
-        var convertedJPYXAccountBalance = JPYXAccountBalance / 100;
-        document.getElementById("JPYXAccountBalance").innerHTML = convertedJPYXAccountBalance.toLocaleString() + " JPYX";
-      }
-    }, "json");
-    $.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.NZDXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("NZDXAccountBalance").innerHTML = "0 NZDX";
-      } else {
-        var NZDXAccountBalance = coinquery.units;
-        var convertedNZDXAccountBalance = NZDXAccountBalance / 100;
-        document.getElementById("NZDXAccountBalance").innerHTML = convertedNZDXAccountBalance.toLocaleString() + " NZDX";
-      }
-    }, "json");$.post(Constants.apiUrl, {
-      requestType: 'getAccountCurrencies',
-      account: currentRSAccountNumber,
-      currency: Constants.RUBXId
-    }, function(coinquery) {
-      if(coinquery == '{}') {
-        document.getElementById("RUBXAccountBalance").innerHTML = "0 RUBX";
-      } else {
-        var RUBXAccountBalance = coinquery.units;
-        var convertedRUBXAccountBalance = RUBXAccountBalance / 100;
-        document.getElementById("RUBXAccountBalance").innerHTML = convertedRUBXAccountBalance.toLocaleString() + " RUBX";
-      }
-    }, "json");
 
-  };
+      document.getElementById("currentAccountBalance").innerHTML = rows;
+    }, "json");
+    $.getJSON(Constants.apiUrl, {
+      requestType: 'getAccountCurrencies',
+      account: currentRSAccountNumber
+    }, function(coinquery) {
+      console.log(coinquery)
+      var rows = ' ';
+      for (var i = 0; i < coinquery.accountCurrencies.length; i++) {
+        var available = coinquery.accountCurrencies[i].unconfirmedUnits;
+        var total = coinquery.accountCurrencies[i].units;
+        var currencyCode = coinquery.accountCurrencies[i].currency;
+        let currency;
+        switch(currencyCode){
+          case Constants.USDXId:
+          currency = "USDX";
+          break;
+          case Constants.AUDXId:
+          currency = "AUDX";
+          break;
+          case Constants.CADXId:
+          currency = "CADX";
+          break;
+          case Constants.CHFXId:
+          currency = "CHFX";
+          break;
+          case Constants.CNYXId:
+          currency = "CNYX";
+          break;
+          case Constants.EURXId:
+          currency = "EURX";
+          break;
+          case Constants.GBPXId:
+          currency = "GBPX";
+          break;
+          case Constants.IQDXId:
+          currency = "IQDX";
+          break;
+          case Constants.IRRXId:
+          currency = "IRRX";
+          break;
+          case Constants.JPYXId:
+          currency = "JPYX";
+          break;
+          case Constants.NZDXId:
+          currency = "NZDX";
+          break;
+          case Constants.RUBXId:
+          currency = "RUBX";
+          break;
+        }
+          rows += '<p class="p-head">' + currency + ' Balance</p>';
+          rows += '<p><b>Available:</b> ' + Number(available).toLocaleString() + ' ' + currency + '</p>'; 
+          rows += '<p><b>Total:</b> ' + Number(total).toLocaleString() + ' ' + currency + '</p>';
+       $("#balances").html(rows); 
+      }})};
   </script>
 </head>
-
 <body class="full-width" onload="checkLogin(); displayAccountInfo(); setAccountNumber();">
   <section id="container">
     <script type="text/javascript" src="js/menu.js"></script>
@@ -225,32 +126,12 @@
                 <div class="media-body"> <p class="p-head">Account ID</p>
                   <p><span id="RSaccount_number">Account ID</span></p> 
                   <p class="p-head"><span >BLX Balance</span></p>
-                  <p><span id="currentAccountBalance">BLX Account Balance</span> BLX</p> 
-                  <p class="p-head"><span >USDX Balance</span></p>
-                  <p><span id="USDXAccountBalance">Calculating USDX Balance...</span></p>
-                  <p class="p-head"><span >AUDX Balance</span></p>
-                  <p><span id="AUDXAccountBalance">Calculating AUDX Balance...</span></p>
-                  <p class="p-head"><span >CADX Balance</span></p>
-                  <p><span id="CADXAccountBalance">Calculating CADX Balance...</span></p>
-                  <p class="p-head"><span >CHFX Balance</span></p>
-                  <p><span id="CHFXAccountBalance">Calculating CHFX Balance...</span></p>
-                  <p class="p-head"><span >CNYX Balance</span></p>
-                  <p><span id="CNYXAccountBalance">Calculating CNYX Balance...</span></p>
-                  <p class="p-head"><span >EURX Balance</span></p>
-                  <p><span id="EURXAccountBalance">Calculating EURX Balance...</span></p>
-                  <p class="p-head"><span >GBPX Balance</span></p>
-                  <p><span id="GBPXAccountBalance">Calculating GBPX Balance...</span></p>
-                  <p class="p-head"><span >IQDX Balance</span></p>
-                  <p><span id="IQDXAccountBalance">Calculating IQDX Balance...</span></p>
-                  <p class="p-head"><span >IRRX Balance</span></p>
-                  <p><span id="IRRXAccountBalance">Calculating IRRX Balance...</span></p>
-                  <p class="p-head"><span >JPYX Balance</span></p>
-                  <p><span id="JPYXAccountBalance">Calculating JPYX Balance...</span></p>
-                  <p class="p-head"><span >NZDX Balance</span></p>
-                  <p><span id="NZDXAccountBalance">Calculating NZDX Balance...</span></p>
-                  <p class="p-head"><span >RUBX Balance</span></p>
-                  <p><span id="RUBXAccountBalance">Calculating RUBX Balance...</span></p>
-
+                  <p><span id="currentAccountBalance">Calculating BLX Account Balance...</span></p> 
+                  <p><span id="balances"></span></p>
+                </div>
+                <br/>
+                <div id="ordersButtonSection">
+                  <button type="button" id="ordersButton" class="btn btn-default" onclick="showOrders();">View Limit Orders</button>
                 </div>
                 <br/>
                 <div id="logoutButtonSection">
@@ -267,6 +148,10 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/constants.js"></script>
   <script src="js/freemarket_scripts.js"></script>
+  <script>
+    function showOrders() {
+      window.location.href = 'accountOrders.html';
+    }
+  </script>
 </body>
-
 </html>
