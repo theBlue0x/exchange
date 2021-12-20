@@ -76,7 +76,6 @@
       account: currentRSAccountNumber,
       availableOnly: true
     }, function(result) {
-    	console.log(result)
     	for (var i = 0; i < result.offers.length; i++) {
     		var offerNum = result.offers[i].offer;
     		var currencyCode = result.offers[i].currency;
@@ -135,7 +134,6 @@
       account: currentRSAccountNumber,
       availableOnly: true
     }, function(result) {
-    	console.log(result)
     	for (var i = 0; i < result.offers.length; i++) {
     		var offerNum = result.offers[i].offer;
     		var currencyCode = result.offers[i].currency;

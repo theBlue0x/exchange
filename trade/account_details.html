@@ -51,7 +51,7 @@
       var total = result.balanceNQT / 100000000;
       var available = result.unconfirmedBalanceNQT/ 100000000;
       var rows = ' ';
-          rows += '<p><b>Available:</b> ' + Number(available).toLocaleString() + ' BLX</p>'; 
+          rows += '<p><b>Avail:</b> ' + Number(available).toLocaleString() + ' BLX</p>'; 
           rows += '<p><b>Total:</b> ' + Number(total).toLocaleString() + ' BLX</p>';
       document.getElementById("RSaccount_number").innerHTML = currentRSAccountNumber;
 
@@ -107,7 +107,7 @@
           break;
         }
           rows += '<p class="p-head">' + currency + ' Balance</p>';
-          rows += '<p><b>Available:</b> ' + Number(available).toLocaleString() + ' ' + currency + '</p>'; 
+          rows += '<p><b>Avail:</b> ' + Number(available).toLocaleString() + ' ' + currency + '</p>'; 
           rows += '<p><b>Total:</b> ' + Number(total).toLocaleString() + ' ' + currency + '</p>';
        $("#balances").html(rows); 
       }})};
