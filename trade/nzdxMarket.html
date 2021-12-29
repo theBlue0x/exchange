@@ -275,6 +275,7 @@
   }
   </script>
 	<script>
+	setInterval(nzdxPrice, 6000);
 	function nzdxPrice() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getExchanges",
@@ -333,9 +334,8 @@
 	}]}})}}
 	</script>
 	<script>
-	var myVar = setInterval(function() {
-		sellOffers()
-	}, 6000);
+	setInterval(sellOffers, 6000);
+	setInterval(sellOffers, 6000);
 	function sellOffers() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getSellOffers",
@@ -359,9 +359,8 @@
 		})}
 	</script>
 	<script>
-	var myVar = setInterval(function() {
-		buyOffers()
-	}, 6000);
+	setInterval(buyOffers, 6000);
+	setInterval(buyOffers, 6000);
 	function buyOffers() {
 		$.getJSON(Constants.apiUrl, {
 			requestType: "getBuyOffers",
@@ -424,7 +423,7 @@
 			currency: Constants.NZDXId,
 			units: baseAmountFormatted
 		}, function(request) {
-			console.log(request)
+			
 			var error = request.errorDescription;
 			if(!error) {
 				var amountNeededBuy = request.amountNQT / 1000000;

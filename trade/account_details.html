@@ -51,8 +51,8 @@
       var total = result.balanceNQT / 100000000;
       var available = result.unconfirmedBalanceNQT/ 100000000;
       var rows = ' ';
-          rows += '<p><b>Avail:</b> ' + Number(available).toLocaleString() + ' BLX</p>'; 
-          rows += '<p><b>Total:</b> ' + Number(total).toLocaleString() + ' BLX</p>';
+          rows += '<p style="margin-left:10px;"><b>Avail:</b> ' + Number(available).toLocaleString() + ' BLX</p>'; 
+          rows += '<p style="margin-left:10px;"><b>Total:</b> ' + Number(total).toLocaleString() + ' BLX</p>';
       document.getElementById("RSaccount_number").innerHTML = currentRSAccountNumber;
 
       document.getElementById("currentAccountBalance").innerHTML = rows;
@@ -61,11 +61,10 @@
       requestType: 'getAccountCurrencies',
       account: currentRSAccountNumber
     }, function(coinquery) {
-      console.log(coinquery)
       var rows = ' ';
       for (var i = 0; i < coinquery.accountCurrencies.length; i++) {
-        var available = coinquery.accountCurrencies[i].unconfirmedUnits;
-        var total = coinquery.accountCurrencies[i].units;
+        var available = (coinquery.accountCurrencies[i].unconfirmedUnits) / 100;
+        var total = (coinquery.accountCurrencies[i].units) / 100;
         var currencyCode = coinquery.accountCurrencies[i].currency;
         let currency;
         switch(currencyCode){
@@ -107,8 +106,8 @@
           break;
         }
           rows += '<p class="p-head">' + currency + ' Balance</p>';
-          rows += '<p><b>Avail:</b> ' + Number(available).toLocaleString() + ' ' + currency + '</p>'; 
-          rows += '<p><b>Total:</b> ' + Number(total).toLocaleString() + ' ' + currency + '</p>';
+          rows += '<p style="margin-left:10px;"><b>Avail:</b> ' + Number(available).toLocaleString() + ' ' + currency + '</p>'; 
+          rows += '<p style="margin-left:10px;"><b>Total:</b> ' + Number(total).toLocaleString() + ' ' + currency + '</p>';
        $("#balances").html(rows); 
       }})};
   </script>
@@ -122,7 +121,7 @@
           <div class="col-lg-12">
             <section class="panel" style="color:#c1c1c1">
               <header class="panel-heading"> <b><span data-i18n="header_current_account_info">Current Account Information</span></b> </header>
-              <div class="panel-body">
+              <div class="panel-body" style="margin-left:10px">
                 <div class="media-body"> <p class="p-head">Account ID</p>
                   <p><span id="RSaccount_number">Account ID</span></p> 
                   <p class="p-head"><span >BLX Balance</span></p>

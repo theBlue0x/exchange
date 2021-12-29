@@ -30,7 +30,7 @@
         <div class="row">
           <div class="col-lg-12">
             <section class="panel" style="color:#c1c1c1">
-              <header class="panel-heading"> <b>Current Limit Orders</span></b> </header>
+              <header class="panel-heading"> <b>Current Limit Orders</b> </header>
               <div class="panel-body">
                 <div class="media-body"> <p class="p-head">Account ID</p>
                 <p><span id="account">Account ID</span></p>
@@ -120,8 +120,8 @@
     		}
     		var offer;
       		offer += '<tr>';
-      		offer += '<td><a href=\'.html&orderid=' + offerNum + '\'>' + currency + '</td>';
-      		offer += '<td><a href=\'.html&orderid=' + offerNum + '\'>' + offerNum + '</a></td>';
+      		offer += '<td><a href=\'buyOrder.html?order=' + offerNum + '\'>' + currency + '</td>';
+      		offer += '<td><a href=\'buyOrder.html?order=' + offerNum + '\'>' + offerNum + '</a></td>';
       		offer += '</tr>';
     		$("#buy_table_body").html(offer);
     }});
@@ -178,8 +178,8 @@
     		}
     		var offer;
       		offer += '<tr>';
-      		offer += '<td><a href=\'.html&orderid=' + offerNum + '\'>' + currency + '</td>';
-      		offer += '<td><a href=\'.html&orderid=' + offerNum + '\'>' + offerNum + '</a></td>';
+      		offer += '<td><a href=\'sellOrder.html?order=' + offerNum + '\'>' + currency + '</td>';
+      		offer += '<td><a href=\'sellOrder.html?order=' + offerNum + '\'>' + offerNum + '</a></td>';
       		offer += '</tr>';
     		$("#sell_table_body").html(offer);
     }});

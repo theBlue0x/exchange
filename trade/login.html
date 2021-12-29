@@ -35,8 +35,6 @@
           replace_loginResult += '<p>You have logged in with the following account:</p>';
           replace_loginResult += '<p class="p-head">Account ID</p>';
           replace_loginResult += '<p>' + result.accountRS + '</p>';
-          replace_loginResult += '</div>';
-          replace_loginResult += '<div class="media-body">';
           replace_loginResult += '<p class="p-head">BLX Balance</p>';
           replace_loginResult += '<p>' + balance.toLocaleString() + ' BLX </p>';
           replace_loginResult += '</div>'
@@ -63,7 +61,7 @@
           <div class="col-lg-12">
             <section class="panel" style="color:#c1c1c1;">
               <header class="panel-heading"> <span>Log In</span> </header>
-              <div class="panel-body">
+              <div class="panel-body" style="padding:30px">
                 <div id="loginResult">
                   <p>Enter your BLX account number below to display your account balances.</p>
                   <div class="form-group">
