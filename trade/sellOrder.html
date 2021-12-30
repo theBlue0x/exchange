@@ -177,6 +177,7 @@
 				feeNQT: 1000000,
 				deadline: 60		  		
 			}, function (cancel) {
+				console.log(cancel)
 				var parse = JSON.parse(cancel)
 				var error = parse.errorDescription;
 				var txID = parse.transaction;
