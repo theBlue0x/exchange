@@ -158,24 +158,23 @@
   		var amount = order.supply;
   		var currencyCode = order.currency;
 	  		$.getJSON(Constants.apiUrl, {
-	  		requestType: "getBlocks"
+	  		requestType: "getBlockchainStatus"
 	  		}, function (block) {
-	  			var blocks = block.blocks;
-	  		var height = blocks[0].height;
-	  		var expHeight = height + 1;
+	  		console.log(block);
+	  		var height = block.numberOfBlocks;
 	  			$.post(Constants.apiUrl, {
 		  		requestType: "publishExchangeOffer",
-				currency: currencyCode,
-				buyRateNQT: rateNQT,
-				sellRateNQT: rateNQT,
-				totalBuyLimit: amount,
-				totalSellLimit: 0,
-				initialBuySupply: amount,
-				initialSellSupply: 0,
-				secretPhrase: $("#modalSecretPhrase").val(),
-				expirationHeight: expHeight,
-				feeNQT: 1000000,
-				deadline: 60		  		
+					currency: currencyCode,
+					buyRateNQT: rateNQT,
+					sellRateNQT: rateNQT,
+					totalBuyLimit: amount,
+					totalSellLimit: 0,
+					initialBuySupply: amount,
+					initialSellSupply: 0,
+					secretPhrase: $("#modalSecretPhrase").val(),
+					expirationHeight: height,
+					feeNQT: 1000000,
+					deadline: 60		  		
 			}, function (cancel) {
 				var parse = JSON.parse(cancel)
 				var error = parse.errorDescription;
