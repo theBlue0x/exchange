@@ -53,7 +53,7 @@
       var rows = ' ';
           rows += '<p style="margin-left:10px;"><b>Avail:</b> ' + Number(available).toLocaleString() + ' BLX</p>'; 
           rows += '<p style="margin-left:10px;"><b>Total:</b> ' + Number(total).toLocaleString() + ' BLX</p>';
-      document.getElementById("RSaccount_number").innerHTML = currentRSAccountNumber;
+      document.getElementById("RSaccount_number").innerHTML = '<p style="margin-left:10px;">' +currentRSAccountNumber + '</p>';
 
       document.getElementById("currentAccountBalance").innerHTML = rows;
     }, "json");

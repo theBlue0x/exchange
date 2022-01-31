@@ -15,41 +15,31 @@
   <script>
   function login() {
     var Account = document.getElementById('user_entered_account_number').value;
-    if(!Account) {
+    if (!Account) { 
       document.getElementById("user_entered_account_numberErrorMessage").innerHTML = "<p>Account Number Required</p>";
     } else {
-      var currentRSAccountNumber = $('#user_entered_account_number').val();
+      document.getElementById("loginButtonSection").innerHTML = "<button type=\"button\" id=\"loginButton\" class=\"btn btn-info\"><i class=\"fa fa-refresh fa-spin\"></i> &nbsp;Processing...</button>";
+      var currentRSAccountNumber =$('#user_entered_account_number').val();
       $.post(Constants.apiUrl, {
         requestType: 'getAccount',
         account: $('#user_entered_account_number').val(),
-        includeEffectiveBalance: "true"
-      }, function(result) {
-        if(result.errorDescription == 'Unknown account') {
-          document.getElementById("user_entered_account_numberErrorMessage").innerHTML = "<p class=\"validation_message\">New or invalid BLX account.  New BLX accounts must first make an outgoing transaction from the Blue0x wallet.</p>";
-        } else {
-          var balance = result.balanceNQT / 100000000;
-          sessionStorage.setItem("accountRS", result.accountRS);
-          sessionStorage.setItem("accountBalance", balance);
-          var replace_loginResult = '';
-          replace_loginResult += '<div class="media-body">';
-          replace_loginResult += '<p>You have logged in with the following account:</p>';
-          replace_loginResult += '<p class="p-head">Account ID</p>';
-          replace_loginResult += '<p>' + result.accountRS + '</p>';
-          replace_loginResult += '<p class="p-head">BLX Balance</p>';
-          replace_loginResult += '<p>' + balance.toLocaleString() + ' BLX </p>';
-          replace_loginResult += '</div>'
-          replace_loginResult += '<br/>'
-          replace_loginResult += '<a type="button" class="btn btn-info" href="markets.html">View Markets</a>&nbsp;<a type="button" class="btn btn-info" href="account_details.html">View Account</a>';
-          document.getElementById("loginResult").innerHTML = replace_loginResult;
-        }
-      }, "json")}};
-  </script>
+      },
+      function(result) {
+          if (result.errorDescription == 'Unknown account') { 
+            document.getElementById("user_entered_account_numberErrorMessage").innerHTML = "<p class=\"validation_message\">New or invalid BLX account.  New BLX accounts must first make an outgoing transaction from the Blue0x wallet.</p>";
+            } else {
+            sessionStorage.setItem("accountRS", result.accountRS);
+            sessionStorage.setItem("loginStatus","loggedin");
+            var fmlang = localStorage.getItem("fmlang");
+            window.location.href = "account_details.html?setLng=" + fmlang;
+          }
+        }, "json")}}
+</script>
   <script>
   function loadAccountInfo() {
     if(sessionStorage.getItem("loginStatus") == "loggedin") {
       window.location.href = "account_details.html";
-    }
-  };
+    }};
   </script>
 </head>
 <body class="full-width" onload="loadAccountInfo();">
@@ -63,7 +53,7 @@
               <header class="panel-heading"> <span>Log In</span> </header>
               <div class="panel-body" style="padding:30px">
                 <div id="loginResult">
-                  <p>Enter your BLX account number below to display your account balances.</p>
+                  <p>Enter your BLX account number below to display your account balances and limit orders.</p>
                   <div class="form-group">
                     <label for="user_entered_account_number">BLX Account Number:</span>
                     </label>
