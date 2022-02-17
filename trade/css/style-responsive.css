@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+
 @media (max-width: 768px) {
     .modal-footer .btn {
         margin-bottom: 0px !important;
@@ -152,9 +154,7 @@
 
 @media (min-width: 281px) and (max-width: 425px) {
     a.logo {
-    font-size: 18px;
-    margin-top: 20px;
-    margin-left: -4px;
+    font-size: 21px;
     }
     .table-responsive {
     border: none;
@@ -163,7 +163,7 @@
 }
 @media (min-width: 670px) {
     a.logo {
-    margin-left: 20px;
+    margin-left: 21px;
     }
     .table-responsive {
     border: none;
